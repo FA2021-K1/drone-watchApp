@@ -1,0 +1,814 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCE061FC26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BCE0620126E8CC8E005DBA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE0620026E8CC8E005DBA0E /* Assets.xcassets */; };
+		BCE0620826E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BCE0620D26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */; };
+		BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0620E26E8CC8E005DBA0E /* ContentView.swift */; };
+		BCE0621126E8CC8E005DBA0E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0621026E8CC8E005DBA0E /* NotificationController.swift */; };
+		BCE0621326E8CC8E005DBA0E /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0621226E8CC8E005DBA0E /* NotificationView.swift */; };
+		BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */; };
+		BCE0621726E8CC91005DBA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE0621626E8CC91005DBA0E /* Assets.xcassets */; };
+		BCE0621A26E8CC91005DBA0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE0621926E8CC91005DBA0E /* Preview Assets.xcassets */; };
+		BCE0622626E8CC91005DBA0E /* RaspberryPiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0622526E8CC91005DBA0E /* RaspberryPiConnectionTests.swift */; };
+		BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCE061FD26E8CC8B005DBA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE061FA26E8CC8B005DBA0E;
+			remoteInfo = "RaspberryPiConnection WatchKit App";
+		};
+		BCE0620926E8CC8E005DBA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE0620626E8CC8E005DBA0E;
+			remoteInfo = "RaspberryPiConnection WatchKit Extension";
+		};
+		BCE0622226E8CC91005DBA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE0620626E8CC8E005DBA0E;
+			remoteInfo = "RaspberryPiConnection WatchKit Extension";
+		};
+		BCE0622D26E8CC91005DBA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE061FA26E8CC8B005DBA0E;
+			remoteInfo = "RaspberryPiConnection WatchKit App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BCE0623826E8CC91005DBA0E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BCE0620826E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0623C26E8CC91005DBA0E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BCE061FC26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryPiConnection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RaspberryPiConnection WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE0620026E8CC8E005DBA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCE0620226E8CC8E005DBA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "RaspberryPiConnection WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryPiConnectionApp.swift; sourceTree = "<group>"; };
+		BCE0620E26E8CC8E005DBA0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BCE0621026E8CC8E005DBA0E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		BCE0621226E8CC8E005DBA0E /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		BCE0621626E8CC91005DBA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCE0621926E8CC91005DBA0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCE0621B26E8CC91005DBA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCE0621C26E8CC91005DBA0E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		BCE0622126E8CC91005DBA0E /* RaspberryPiConnectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryPiConnectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE0622526E8CC91005DBA0E /* RaspberryPiConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryPiConnectionTests.swift; sourceTree = "<group>"; };
+		BCE0622726E8CC91005DBA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCE0622C26E8CC91005DBA0E /* RaspberryPiConnectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryPiConnectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryPiConnectionUITests.swift; sourceTree = "<group>"; };
+		BCE0623226E8CC91005DBA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCE0620426E8CC8E005DBA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0621E26E8CC91005DBA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0622926E8CC91005DBA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCE061F026E8CC8B005DBA0E = {
+			isa = PBXGroup;
+			children = (
+				BCE061FF26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */,
+				BCE0620B26E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */,
+				BCE0622426E8CC91005DBA0E /* RaspberryPiConnectionTests */,
+				BCE0622F26E8CC91005DBA0E /* RaspberryPiConnectionUITests */,
+				BCE061F826E8CC8B005DBA0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCE061F826E8CC8B005DBA0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */,
+				BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */,
+				BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */,
+				BCE0622126E8CC91005DBA0E /* RaspberryPiConnectionTests.xctest */,
+				BCE0622C26E8CC91005DBA0E /* RaspberryPiConnectionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCE061FF26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				BCE0620026E8CC8E005DBA0E /* Assets.xcassets */,
+				BCE0620226E8CC8E005DBA0E /* Info.plist */,
+			);
+			path = "RaspberryPiConnection WatchKit App";
+			sourceTree = "<group>";
+		};
+		BCE0620B26E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */,
+				BCE0620E26E8CC8E005DBA0E /* ContentView.swift */,
+				BCE0621026E8CC8E005DBA0E /* NotificationController.swift */,
+				BCE0621226E8CC8E005DBA0E /* NotificationView.swift */,
+				BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */,
+				BCE0621626E8CC91005DBA0E /* Assets.xcassets */,
+				BCE0621B26E8CC91005DBA0E /* Info.plist */,
+				BCE0621C26E8CC91005DBA0E /* PushNotificationPayload.apns */,
+				BCE0621826E8CC91005DBA0E /* Preview Content */,
+			);
+			path = "RaspberryPiConnection WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		BCE0621826E8CC91005DBA0E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BCE0621926E8CC91005DBA0E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BCE0622426E8CC91005DBA0E /* RaspberryPiConnectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCE0622526E8CC91005DBA0E /* RaspberryPiConnectionTests.swift */,
+				BCE0622726E8CC91005DBA0E /* Info.plist */,
+			);
+			path = RaspberryPiConnectionTests;
+			sourceTree = "<group>";
+		};
+		BCE0622F26E8CC91005DBA0E /* RaspberryPiConnectionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */,
+				BCE0623226E8CC91005DBA0E /* Info.plist */,
+			);
+			path = RaspberryPiConnectionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCE061F626E8CC8B005DBA0E /* RaspberryPiConnection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCE0623D26E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection" */;
+			buildPhases = (
+				BCE061F526E8CC8B005DBA0E /* Resources */,
+				BCE0623C26E8CC91005DBA0E /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCE061FE26E8CC8B005DBA0E /* PBXTargetDependency */,
+			);
+			name = RaspberryPiConnection;
+			productName = RaspberryPiConnection;
+			productReference = BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		BCE061FA26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCE0623926E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection WatchKit App" */;
+			buildPhases = (
+				BCE061F926E8CC8B005DBA0E /* Resources */,
+				BCE0623826E8CC91005DBA0E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCE0620A26E8CC8E005DBA0E /* PBXTargetDependency */,
+			);
+			name = "RaspberryPiConnection WatchKit App";
+			productName = "RaspberryPiConnection WatchKit App";
+			productReference = BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		BCE0620626E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCE0623526E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection WatchKit Extension" */;
+			buildPhases = (
+				BCE0620326E8CC8E005DBA0E /* Sources */,
+				BCE0620426E8CC8E005DBA0E /* Frameworks */,
+				BCE0620526E8CC8E005DBA0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RaspberryPiConnection WatchKit Extension";
+			productName = "RaspberryPiConnection WatchKit Extension";
+			productReference = BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		BCE0622026E8CC91005DBA0E /* RaspberryPiConnectionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCE0624026E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnectionTests" */;
+			buildPhases = (
+				BCE0621D26E8CC91005DBA0E /* Sources */,
+				BCE0621E26E8CC91005DBA0E /* Frameworks */,
+				BCE0621F26E8CC91005DBA0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCE0622326E8CC91005DBA0E /* PBXTargetDependency */,
+			);
+			name = RaspberryPiConnectionTests;
+			productName = RaspberryPiConnectionTests;
+			productReference = BCE0622126E8CC91005DBA0E /* RaspberryPiConnectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BCE0622B26E8CC91005DBA0E /* RaspberryPiConnectionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCE0624326E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnectionUITests" */;
+			buildPhases = (
+				BCE0622826E8CC91005DBA0E /* Sources */,
+				BCE0622926E8CC91005DBA0E /* Frameworks */,
+				BCE0622A26E8CC91005DBA0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCE0622E26E8CC91005DBA0E /* PBXTargetDependency */,
+			);
+			name = RaspberryPiConnectionUITests;
+			productName = RaspberryPiConnectionUITests;
+			productReference = BCE0622C26E8CC91005DBA0E /* RaspberryPiConnectionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCE061F126E8CC8B005DBA0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					BCE061F626E8CC8B005DBA0E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					BCE061FA26E8CC8B005DBA0E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					BCE0620626E8CC8E005DBA0E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					BCE0622026E8CC91005DBA0E = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = BCE0620626E8CC8E005DBA0E;
+					};
+					BCE0622B26E8CC91005DBA0E = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = BCE061FA26E8CC8B005DBA0E;
+					};
+				};
+			};
+			buildConfigurationList = BCE061F426E8CC8B005DBA0E /* Build configuration list for PBXProject "RaspberryPiConnection" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCE061F026E8CC8B005DBA0E;
+			productRefGroup = BCE061F826E8CC8B005DBA0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCE061F626E8CC8B005DBA0E /* RaspberryPiConnection */,
+				BCE061FA26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */,
+				BCE0620626E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */,
+				BCE0622026E8CC91005DBA0E /* RaspberryPiConnectionTests */,
+				BCE0622B26E8CC91005DBA0E /* RaspberryPiConnectionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCE061F526E8CC8B005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE061F926E8CC8B005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE0620126E8CC8E005DBA0E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0620526E8CC8E005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE0621A26E8CC91005DBA0E /* Preview Assets.xcassets in Resources */,
+				BCE0621726E8CC91005DBA0E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0621F26E8CC91005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0622A26E8CC91005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCE0620326E8CC8E005DBA0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE0621126E8CC8E005DBA0E /* NotificationController.swift in Sources */,
+				BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */,
+				BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */,
+				BCE0620D26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift in Sources */,
+				BCE0621326E8CC8E005DBA0E /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0621D26E8CC91005DBA0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE0622626E8CC91005DBA0E /* RaspberryPiConnectionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCE0622826E8CC91005DBA0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCE061FE26E8CC8B005DBA0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCE061FA26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */;
+			targetProxy = BCE061FD26E8CC8B005DBA0E /* PBXContainerItemProxy */;
+		};
+		BCE0620A26E8CC8E005DBA0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCE0620626E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */;
+			targetProxy = BCE0620926E8CC8E005DBA0E /* PBXContainerItemProxy */;
+		};
+		BCE0622326E8CC91005DBA0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCE0620626E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */;
+			targetProxy = BCE0622226E8CC91005DBA0E /* PBXContainerItemProxy */;
+		};
+		BCE0622E26E8CC91005DBA0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCE061FA26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */;
+			targetProxy = BCE0622D26E8CC91005DBA0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BCE0623326E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BCE0623426E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCE0623626E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RaspberryPiConnection WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "RaspberryPiConnection WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		BCE0623726E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"RaspberryPiConnection WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "RaspberryPiConnection WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		BCE0623A26E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				IBSC_MODULE = RaspberryPiConnection_WatchKit_Extension;
+				INFOPLIST_FILE = "RaspberryPiConnection WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		BCE0623B26E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				IBSC_MODULE = RaspberryPiConnection_WatchKit_Extension;
+				INFOPLIST_FILE = "RaspberryPiConnection WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		BCE0623E26E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BCE0623F26E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BCE0624126E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				INFOPLIST_FILE = RaspberryPiConnectionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryPiConnection WatchKit Extension.appex/RaspberryPiConnection WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		BCE0624226E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				INFOPLIST_FILE = RaspberryPiConnectionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryPiConnection WatchKit Extension.appex/RaspberryPiConnection WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		BCE0624426E8CC91005DBA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				INFOPLIST_FILE = RaspberryPiConnectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnectionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "RaspberryPiConnection WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		BCE0624526E8CC91005DBA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D65V45DPAH;
+				INFOPLIST_FILE = RaspberryPiConnectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = personal.RaspberryPiConnectionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "RaspberryPiConnection WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCE061F426E8CC8B005DBA0E /* Build configuration list for PBXProject "RaspberryPiConnection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0623326E8CC91005DBA0E /* Debug */,
+				BCE0623426E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCE0623526E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0623626E8CC91005DBA0E /* Debug */,
+				BCE0623726E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCE0623926E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0623A26E8CC91005DBA0E /* Debug */,
+				BCE0623B26E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCE0623D26E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0623E26E8CC91005DBA0E /* Debug */,
+				BCE0623F26E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCE0624026E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnectionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0624126E8CC91005DBA0E /* Debug */,
+				BCE0624226E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCE0624326E8CC91005DBA0E /* Build configuration list for PBXNativeTarget "RaspberryPiConnectionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCE0624426E8CC91005DBA0E /* Debug */,
+				BCE0624526E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCE061F126E8CC8B005DBA0E /* Project object */;
+}
