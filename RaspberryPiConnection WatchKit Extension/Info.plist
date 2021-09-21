@@ -27,12 +27,17 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>personal.RaspberryPiConnection.watchkitapp</string>
+			<string>de.tum.in.ase.fa21.controller</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
 	<key>WKWatchOnly</key>
+	<true/>
+	<key>com.apple.developer.networking.HotspotConfiguration</key>
+	<true/>
+	<key>com.apple.developer.networking.wifi-info
+</key>
 	<true/>
 </dict>
 </plist>
