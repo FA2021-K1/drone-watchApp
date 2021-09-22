@@ -18,6 +18,7 @@ class WifiConnectivity: ObservableObject {
     
     init(buoy: Buoy) {
         self.hotspotConfig = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
+        //self.hotspotConfig.joinOnce = true
         self.url = buoy.url
     }
     
@@ -34,6 +35,7 @@ class WifiConnectivity: ObservableObject {
         NEHotspotNetwork.fetchCurrent() {
             (networkOptional) in
             guard let network = networkOptional else {
+                self.connectedNetwork = ""
                 print("access of current network information failed")
                 return
             }
@@ -61,7 +63,6 @@ class WifiConnectivity: ObservableObject {
             }
             else {
                 print("Success!")
-                
             }
         }
         
