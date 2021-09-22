@@ -22,7 +22,7 @@ class WifiConnectivity: ObservableObject {
         self.url = buoy.url
     }
     
-    func checkForCurrentNetwork() {
+    func checkForCurrentNetwork() -> String {
        
         
         //check if lionfish is already configured
@@ -47,6 +47,7 @@ class WifiConnectivity: ObservableObject {
                 // call function to retrieve data
             }
         }
+        return "connecting..."
     }
     
     private lazy var requestData: Void = {

@@ -17,7 +17,7 @@ struct RaspberryPiConnectionApp: App {
     
     
     init() {
-        wifiConnectivity.checkForCurrentNetwork()
+        wifiConnectivity.connect()
     }
     
     @SceneBuilder var body: some Scene {

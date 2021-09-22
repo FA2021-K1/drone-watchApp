@@ -27,18 +27,16 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                Text("Connected to: \(wifiConnectivity.connectedNetwork)")
-                .padding()
-                .onReceive(timer) { input in
-                    wifiConnectivity.checkForCurrentNetwork()
-                }
-                Text("Received from: \(receivedData.buoyName)")
-                Text("data: \(receivedData.data)")
+          // VStack {
+               
+                // Text("Received from: \(receivedData.buoyName)")
+              //  Text("data: \(receivedData.data)")
                 if #available(watchOSApplicationExtension 8.0, *) {
-                    TimelineView(.periodic(from: Date.now, by: 1)) { context in
-                        Text("\(context.date.description)")
-                        //Text("Seconds running \(getIncremented())")
+                    TimelineView(.periodic(from: Date.now, by: 10)) { context in
+                        VStack {
+                            Text("Status: \(wifiConnectivity.checkForCurrentNetwork())")
+                            Text("Connected to \(wifiConnectivity.connectedNetwork)")
+                        }
                     }
                 } else {
                     // Fallback on earlier versions
@@ -46,7 +44,7 @@ struct ContentView: View {
                 }
                            
             }
-        }
+      //  }
     }
 }
 
