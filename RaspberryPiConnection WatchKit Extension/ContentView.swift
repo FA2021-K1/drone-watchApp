@@ -14,7 +14,8 @@ struct ContentView: View {
         VStack {
         Text("Hello, World!")
             .padding()
-            Button("Connect", action: {wifiConnectivity.connect()})
+            Button("Configure", action: {wifiConnectivity.connect()})
+            Button("Connect", action: {wifiConnectivity.checkForCurrentNetwork()})
         }
     }
 }

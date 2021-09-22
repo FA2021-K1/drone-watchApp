@@ -21,7 +21,7 @@ class SessionManager {
     
     //Request Object
     var request = URLRequest(url: url)
-    request.setValue("data/json", forHTTPHeaderField: "Content-Type")
+//    request.setValue("data/json", forHTTPHeaderField: "Content-Type")
     //Create data task -- defaults to GET //request.httpMethod = "GET"
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return print("HTTP Request Failed \(String(describing: error))") }

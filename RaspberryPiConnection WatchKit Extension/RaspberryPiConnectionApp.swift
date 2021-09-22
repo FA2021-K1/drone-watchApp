@@ -9,6 +9,14 @@ import SwiftUI
 
 @main
 struct RaspberryPiConnectionApp: App {
+    var timer = Timer()
+    
+    init() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in
+            WifiConnectivity().checkForCurrentNetwork()
+            })
+    }
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
