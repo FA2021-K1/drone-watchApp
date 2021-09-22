@@ -22,7 +22,7 @@ class WifiConnectivity: ObservableObject {
     }
     
     func checkForCurrentNetwork() {
-        let session = SessionManager(url: url)
+       
         
         //check if lionfish is already configured
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
@@ -40,12 +40,19 @@ class WifiConnectivity: ObservableObject {
             print(network.ssid)
             self.connectedNetwork = network.ssid
             if network.ssid == "lionfish" {
-                //     session.requestData()
+                _ = self.requestData
                 
                 // call function to retrieve data
             }
         }
     }
+    
+    private lazy var requestData: Void = {
+        let session = SessionManager(url: url)
+        session.requestData()
+    }()
+
+
     
     func connect() {
         NEHotspotConfigurationManager.shared.apply(hotspotConfig) {[] (error) in

@@ -17,7 +17,6 @@ struct RaspberryPiConnectionApp: App {
     
     
     init() {
-        
         wifiConnectivity.checkForCurrentNetwork()
     }
     
