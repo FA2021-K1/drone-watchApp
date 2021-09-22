@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    let wifiConnectivity = WifiConnectivity()
+   // @EnvironmentObject var connected: Bool
+    @EnvironmentObject var receivedData: ReceivedData
+    @EnvironmentObject  var wifiConnectivity:WifiConnectivity
+    
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+
     
     var body: some View {
         VStack {
-        Text("Hello, World!")
+            Text("Connected to: \(wifiConnectivity.connectedNetwork)")
             .padding()
-            Button("Configure", action: {wifiConnectivity.connect()})
-            Button("Connect", action: {wifiConnectivity.checkForCurrentNetwork()})
+            .onReceive(timer) { input in
+                wifiConnectivity.checkForCurrentNetwork()
+            }
+            Text("Received from: \(receivedData.buoyName)")
+            Text("data: \(receivedData.data)")
+                       
         }
     }
 }

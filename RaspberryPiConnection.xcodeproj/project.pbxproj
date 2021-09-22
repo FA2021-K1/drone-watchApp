@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BC1FF1F826F9B5C600D1C8A0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */; };
+		BC25477B26FB0D00006200CA /* ReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477A26FB0D00006200CA /* ReceivedData.swift */; };
+		BC25477D26FB1F72006200CA /* Buoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477C26FB1F72006200CA /* Buoy.swift */; };
 		BCE061FC26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BCE0620126E8CC8E005DBA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE0620026E8CC8E005DBA0E /* Assets.xcassets */; };
 		BCE0620826E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		BC25477A26FB0D00006200CA /* ReceivedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedData.swift; sourceTree = "<group>"; };
+		BC25477C26FB1F72006200CA /* Buoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buoy.swift; sourceTree = "<group>"; };
 		BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryPiConnection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RaspberryPiConnection WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE0620026E8CC8E005DBA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */,
 				BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */,
+				BC25477C26FB1F72006200CA /* Buoy.swift */,
 			);
 			path = Connectivity;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				BCE0621B26E8CC91005DBA0E /* Info.plist */,
 				BCE0621C26E8CC91005DBA0E /* PushNotificationPayload.apns */,
 				BCE0621826E8CC91005DBA0E /* Preview Content */,
+				BC25477A26FB0D00006200CA /* ReceivedData.swift */,
 			);
 			path = "RaspberryPiConnection WatchKit Extension";
 			sourceTree = "<group>";
@@ -415,10 +421,12 @@
 			files = (
 				BCE0621126E8CC8E005DBA0E /* NotificationController.swift in Sources */,
 				BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */,
+				BC25477D26FB1F72006200CA /* Buoy.swift in Sources */,
 				BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */,
 				BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */,
 				BCE0620D26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift in Sources */,
 				BCE0621326E8CC8E005DBA0E /* NotificationView.swift in Sources */,
+				BC25477B26FB0D00006200CA /* ReceivedData.swift in Sources */,
 				BC1FF1F826F9B5C600D1C8A0 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

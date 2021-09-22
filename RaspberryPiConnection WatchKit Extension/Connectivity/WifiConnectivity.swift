@@ -7,15 +7,30 @@
 
 import Foundation
 import NetworkExtension
+import SwiftUI
 
 
-class WifiConnectivity {
-    let hotspotConfig = NEHotspotConfiguration(ssid: "lionfish", passphrase: "Raspberry", isWEP: false)
-    let url = URL(string: "http://4c08f81d-f725-4d2f-87fc-58bb61a0450b.mock.pstmn.io/data")!
+class WifiConnectivity: ObservableObject {
+    
+    let hotspotConfig: NEHotspotConfiguration
+    let url: URL
+    @Published var connectedNetwork = ""
+    
+    init(buoy: Buoy) {
+        self.hotspotConfig = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
+        self.url = buoy.url
+    }
     
     func checkForCurrentNetwork() {
         let session = SessionManager(url: url)
-
+        
+        //check if lionfish is already configured
+        NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
+            guard ssidsArray.contains("lionfish") else {
+                self.connect()
+                return
+            }
+        }
         NEHotspotNetwork.fetchCurrent() {
             (networkOptional) in
             guard let network = networkOptional else {
@@ -23,9 +38,10 @@ class WifiConnectivity {
                 return
             }
             print(network.ssid)
+            self.connectedNetwork = network.ssid
             if network.ssid == "lionfish" {
-                //session.requestData()
-
+                //     session.requestData()
+                
                 // call function to retrieve data
             }
         }
@@ -33,21 +49,21 @@ class WifiConnectivity {
     
     func connect() {
         NEHotspotConfigurationManager.shared.apply(hotspotConfig) {[] (error) in
-           if let error = error {
-              print("error = ",error)
-           }
-           else {
-              print("Success!")
-         
-           }
+            if let error = error {
+                print("error = ",error)
+            }
+            else {
+                print("Success!")
+                
+            }
         }
         
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
-           for ssid in ssidsArray {
-              print("ssid = ",ssid)
-           }
+            for ssid in ssidsArray {
+                print("ssid = ",ssid)
+            }
         }
-
+        
     }
     
     
