@@ -34,11 +34,8 @@
 	</dict>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
+		<key>NSAllowsLocalNetworking</key>
 		<true/>
-	</dict>
-	<key>NSAppTransportSecurity - 2</key>
-	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>

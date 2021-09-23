@@ -25,13 +25,10 @@ class SessionManager {
     //Create data task -- defaults to GET //request.httpMethod = "GET"
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return print("HTTPS Request Failed \(String(describing: error))") }
-        print(String(data: data, encoding: .utf8)!)
+        print("Received Data: \(String(describing: String(data: data, encoding: .utf8)))!")
         
     }
     
     task.resume()
     }
- 
-    
-    
 }
