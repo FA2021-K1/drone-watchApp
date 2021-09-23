@@ -36,13 +36,18 @@ struct ContentView: View {
                         VStack {
                             Text("\(wifiConnectivity.tick())")
                             Text("State: \(wifiConnectivity.state.rawValue)")
-                            Text("Connected to \(wifiConnectivity.connectedNetwork)")
-                            
+                            Text("WiFi status \(wifiConnectivity.isConnected)")
+                            if wifiConnectivity.isConnected == "connected" {
+                                Text("Connected to \(wifiConnectivity.connectedNetwork)")
+                            } else {
+                                Text("Last connected to \(wifiConnectivity.connectedNetwork)")
+                            }
+                            Text("\(wifiConnectivity.receivedData)")
                         }
                     }
                 } else {
                     // Fallback on earlier versions
-                    Text("please update to use always on functionality")
+                    Text("please update to watchOS 8 to use always on functionality")
                 }
                            
             }

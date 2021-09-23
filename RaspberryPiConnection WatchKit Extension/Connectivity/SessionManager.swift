@@ -30,6 +30,7 @@ class SessionManager {
         guard let data = data else { return print("HTTP Request Failed \(String(describing: error))") }
         // transmission successful, now wait to disconnect
         self.wifiConnectivity.state = .waitForDisconnect
+        self.wifiConnectivity.receivedData = "Received Data: \(String(describing: String(data: data, encoding: .utf8)))!"
         print("Received Data: \(String(describing: String(data: data, encoding: .utf8)))!")
         
     }

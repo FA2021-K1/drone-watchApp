@@ -13,7 +13,7 @@ enum States: String {
     case disconnected
     case connectedToBuoy
     case connectedToScienceLab
-    case waitForDisconnect
+    case waitForDisconnect = "Data transmitted, waiting to disconnect"
 }
 
 
@@ -25,7 +25,8 @@ class WifiConnectivity: ObservableObject {
     let lab: Lab
     @Published var state: States
     @Published var connectedNetwork = ""
-    @Published var isConnected = "connecting..."
+    @Published var isConnected = "disconnected"
+    @Published var receivedData = ""
         
     init(buoy: Buoy, lab: Lab) {
         self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
@@ -40,23 +41,23 @@ class WifiConnectivity: ObservableObject {
         switch self.state {
         case .disconnected:
             // waitForNetwork
-            print("disconnected, wait for networks")
+            //print("disconnected, wait for networks")
             self.checkForCurrentNetwork(waitForDisconnect: false)
         case .connectedToBuoy:
             // request data
             let sessionBuoy = SessionManager(url: self.buoy.url, wifiConnectivity: self)
             sessionBuoy.requestData()
-            print("connected to buoy, request data")
+            //print("connected to buoy, request data")
         case .connectedToScienceLab:
             // post data
             let sessionLab = SessionManager(url: self.lab.url, wifiConnectivity: self)
             // change once lab is available
             self.state = .waitForDisconnect
             //sessionLab.sendData()
-            print("connected to science lab, send data")
+            //print("connected to science lab, send data")
         case .waitForDisconnect:
             self.checkForCurrentNetwork(waitForDisconnect: true)
-            print("data transmission done, wait for disconnect")
+            //print("data transmission done, wait for disconnect")
             // wait until network is disconnected, then go back to disconnected state
         }
         return "hello world"
@@ -67,7 +68,7 @@ class WifiConnectivity: ObservableObject {
                 //check if lionfish is already configured
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
             
-            print("ssidsArray: \(ssidsArray)")
+            //print("ssidsArray: \(ssidsArray)")
             guard ssidsArray.contains(self.buoy.ssid) else {
                 self.connect(hotspotConfig: self.hotspotConfigBuoy)
                 return
@@ -82,7 +83,7 @@ class WifiConnectivity: ObservableObject {
             (networkOptional) in
             
             guard let network = networkOptional else {
-                self.connectedNetwork = ""
+                //self.connectedNetwork = ""
                 self.isConnected = "disconnected"
                 print("access of current network information failed")
                 self.state = .disconnected
@@ -93,7 +94,7 @@ class WifiConnectivity: ObservableObject {
                 self.state = .waitForDisconnect
                 return
             }
-            print(network.ssid)
+            //print(network.ssid)
             // if we expect to be connected
            
             self.connectedNetwork = network.ssid
