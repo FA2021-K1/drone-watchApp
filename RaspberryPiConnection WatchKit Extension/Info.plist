@@ -32,13 +32,6 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsLocalNetworking</key>
-		<true/>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>WKWatchOnly</key>
 	<true/>
 	<key>com.apple.developer.networking.HotspotConfiguration</key>

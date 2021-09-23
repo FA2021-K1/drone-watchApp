@@ -32,12 +32,10 @@ struct ContentView: View {
                 // Text("Received from: \(receivedData.buoyName)")
               //  Text("data: \(receivedData.data)")
                 if #available(watchOSApplicationExtension 8.0, *) {
-                    TimelineView(.periodic(from: Date.now, by: 2)) { context in
+                    TimelineView(.periodic(from: Date.now, by: 10)) { context in
                         VStack {
                             Text("Status: \(wifiConnectivity.checkForCurrentNetwork())")
-                           Text("Status: \(wifiConnectivity.isConnected)")
                             Text("Connected to \(wifiConnectivity.connectedNetwork)")
-                            
                         }
                     }
                 } else {

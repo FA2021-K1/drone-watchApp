@@ -12,13 +12,12 @@ struct RaspberryPiConnectionApp: App {
     
     //EnvironmentObject
     var timer = Timer()
-    var wifiConnectivity = WifiConnectivity(buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/sensors")!), lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "http://data.fa.ase.in.tum.de/")!))
+    var wifiConnectivity = WifiConnectivity(buoy: Buoy(ssid: "lionfish", password: "Raspberry", url: URL(string: "https://4c08f81d-f725-4d2f-87fc-58bb61a0450b.mock.pstmn.io/data")!))
     var receivedData = ReceivedData()
     
     
-    
     init() {
-     wifiConnectivity.checkForCurrentNetwork()
+        wifiConnectivity.connect()
     }
     
     @SceneBuilder var body: some Scene {

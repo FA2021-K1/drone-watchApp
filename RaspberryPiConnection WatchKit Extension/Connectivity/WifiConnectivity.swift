@@ -12,71 +12,52 @@ import SwiftUI
 
 class WifiConnectivity: ObservableObject {
     
-    let hotspotConfigBuoy: NEHotspotConfiguration
-    let hotspotConfigLab: NEHotspotConfiguration
-    let buoy: Buoy
-    let lab: Lab
+    let hotspotConfig: NEHotspotConfiguration
+    let url: URL
     @Published var connectedNetwork = ""
-    @Published var isConnected = "connecting..."
     
-    init(buoy: Buoy, lab: Lab) {
-        self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
+    init(buoy: Buoy) {
+        self.hotspotConfig = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
         //self.hotspotConfig.joinOnce = true
-        self.buoy = buoy
-        self.hotspotConfigLab = NEHotspotConfiguration(ssid: lab.ssid, passphrase: lab.password, isWEP: false)
-        self.lab = lab
+        self.url = buoy.url
     }
     
     func checkForCurrentNetwork() -> String {
-                //check if lionfish is already configured
+       
+        
+        //check if lionfish is already configured
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
-            
-            print("ssidsArray: \(ssidsArray)")
-            guard ssidsArray.contains(self.buoy.ssid) else {
-                self.connect(hotspotConfig: self.hotspotConfigBuoy)
-                return
-            }
-            
-            guard ssidsArray.contains(self.lab.ssid) else {
-                self.connect(hotspotConfig: self.hotspotConfigLab)
+            guard ssidsArray.contains("lionfish") else {
+                self.connect()
                 return
             }
         }
-        NEHotspotNetwork.fetchCurrent() { [self]
+        NEHotspotNetwork.fetchCurrent() {
             (networkOptional) in
-            
             guard let network = networkOptional else {
                 self.connectedNetwork = ""
-                self.isConnected = "disconnected"
                 print("access of current network information failed")
                 return
             }
             print(network.ssid)
             self.connectedNetwork = network.ssid
-            if network.ssid == self.buoy.ssid {
-//                _ = self.requestData
-                
-                let sessionBuoy = SessionManager(url: self.buoy.url)
-                sessionBuoy.requestData()
-                self.isConnected = "connected"
+            if network.ssid == "lionfish" {
+                _ = self.requestData
                 
                 // call function to retrieve data
-            
             }
-            if network.ssid == self.lab.ssid {
-                let sessionLab = SessionManager(url: self.lab.url)
-                sessionLab.sendData()
-            }
-            
-           
         }
-        return "Dragon Eagle"
+        return "connecting..."
     }
     
-   
+    private lazy var requestData: Void = {
+        let session = SessionManager(url: url)
+        session.requestData()
+    }()
+
 
     
-    func connect(hotspotConfig: NEHotspotConfiguration) {
+    func connect() {
         NEHotspotConfigurationManager.shared.apply(hotspotConfig) {[] (error) in
             if let error = error {
                 print("error = ",error)
