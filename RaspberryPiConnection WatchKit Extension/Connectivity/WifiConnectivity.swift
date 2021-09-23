@@ -44,12 +44,12 @@ class WifiConnectivity: ObservableObject {
             self.checkForCurrentNetwork(waitForDisconnect: false)
         case .connectedToBuoy:
             // request data
-            let sessionBuoy = SessionManager(url: self.buoy.url)
+            let sessionBuoy = SessionManager(url: self.buoy.url, wifiConnectivity: self)
             sessionBuoy.requestData()
             print("connected to buoy, request data")
         case .connectedToScienceLab:
             // post data
-            let sessionLab = SessionManager(url: self.lab.url)
+            let sessionLab = SessionManager(url: self.lab.url, wifiConnectivity: self)
             // change once lab is available
             self.state = .waitForDisconnect
             //sessionLab.sendData()

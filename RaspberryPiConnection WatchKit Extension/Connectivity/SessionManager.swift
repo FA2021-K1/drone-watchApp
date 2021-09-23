@@ -11,12 +11,13 @@ import SwiftUI
 
 class SessionManager {
     @EnvironmentObject var receivedData: ReceivedData
-    @EnvironmentObject var wifiConnectivity: WifiConnectivity
+    var wifiConnectivity: WifiConnectivity
     let url: URL
     
-    init(url: URL) {
+    init(url: URL, wifiConnectivity: WifiConnectivity) {
     //initialize URL
         self.url = url
+        self.wifiConnectivity = wifiConnectivity
     }
     
     
