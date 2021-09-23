@@ -11,6 +11,7 @@ import SwiftUI
 
 class SessionManager {
     @EnvironmentObject var receivedData: ReceivedData
+    @EnvironmentObject var wifiConnectivity: WifiConnectivity
     let url: URL
     
     init(url: URL) {
@@ -26,6 +27,8 @@ class SessionManager {
     //Create data task -- defaults to GET //request.httpMethod = "GET"
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return print("HTTP Request Failed \(String(describing: error))") }
+        // transmission successful, now wait to disconnect
+        self.wifiConnectivity.state = .waitForDisconnect
         print("Received Data: \(String(describing: String(data: data, encoding: .utf8)))!")
         
     }
@@ -53,6 +56,8 @@ class SessionManager {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
+            // transmission successful, now wait to disconnect
+            self.wifiConnectivity.state = .waitForDisconnect
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
                 print(responseJSON)

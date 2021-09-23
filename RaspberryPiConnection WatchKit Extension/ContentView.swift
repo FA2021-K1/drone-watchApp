@@ -14,7 +14,7 @@ struct Counter {
 struct ContentView: View {
    // @EnvironmentObject var connected: Bool
     @EnvironmentObject var receivedData: ReceivedData
-    @EnvironmentObject  var wifiConnectivity:WifiConnectivity
+    @EnvironmentObject  var wifiConnectivity: WifiConnectivity
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
@@ -34,8 +34,8 @@ struct ContentView: View {
                 if #available(watchOSApplicationExtension 8.0, *) {
                     TimelineView(.periodic(from: Date.now, by: 2)) { context in
                         VStack {
-                            Text("Status: \(wifiConnectivity.checkForCurrentNetwork())")
-                           Text("Status: \(wifiConnectivity.isConnected)")
+                            Text("\(wifiConnectivity.tick())")
+                            Text("State: \(wifiConnectivity.state.rawValue)")
                             Text("Connected to \(wifiConnectivity.connectedNetwork)")
                             
                         }
