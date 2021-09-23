@@ -41,7 +41,7 @@ class SessionManager {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
         // create post request
-        let url = URL(string: "http://data.fa.ase.in.tum.de/")!
+        let url = url
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
