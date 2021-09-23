@@ -16,15 +16,16 @@ struct RaspberryPiConnectionApp: App {
     var receivedData = ReceivedData()
     
     
-    
     init() {
-     wifiConnectivity.checkForCurrentNetwork()
+     wifiConnectivity.checkForCurrentNetwork(waitForDisconnect: false)
     }
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView().environmentObject(receivedData).environmentObject(wifiConnectivity)
+                ContentView()
+                    .environmentObject(receivedData)
+                    .environmentObject(wifiConnectivity)
             }
         }
 
