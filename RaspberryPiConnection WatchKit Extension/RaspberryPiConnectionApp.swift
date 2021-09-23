@@ -12,7 +12,7 @@ struct RaspberryPiConnectionApp: App {
     
     //EnvironmentObject
     var timer = Timer()
-    var wifiConnectivity = WifiConnectivity(buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/sensors")!), lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "http://data.fa.ase.in.tum.de/")!))
+    var wifiConnectivity = WifiConnectivity(buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!), lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "http://192.168.1.199:8080/v1/measurements/test")!))
     var receivedData = ReceivedData()
     
     
