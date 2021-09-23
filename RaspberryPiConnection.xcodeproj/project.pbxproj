@@ -25,6 +25,7 @@
 		BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */; };
 		BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
 		BCE062CE26EA1C03005DBA0E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */; };
+		F893AFDF26FC7745007CBAB4 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F893AFDE26FC7745007CBAB4 /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConnectivity.swift; sourceTree = "<group>"; };
 		BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RaspberryPiConnection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
+		F893AFDE26FC7745007CBAB4 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			children = (
 				BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */,
 				BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */,
+				F893AFDE26FC7745007CBAB4 /* State.swift */,
 				BCE0620E26E8CC8E005DBA0E /* ContentView.swift */,
 				BCA6448326FC6AA300F7ACA8 /* Stations */,
 				BC1FF1F626F9B51400D1C8A0 /* Connectivity */,
@@ -433,6 +436,7 @@
 				BCE0621126E8CC8E005DBA0E /* NotificationController.swift in Sources */,
 				BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */,
 				BC25477D26FB1F72006200CA /* Buoy.swift in Sources */,
+				F893AFDF26FC7745007CBAB4 /* State.swift in Sources */,
 				BCA6448226FC61CB00F7ACA8 /* Lab.swift in Sources */,
 				BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */,
 				BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */,
