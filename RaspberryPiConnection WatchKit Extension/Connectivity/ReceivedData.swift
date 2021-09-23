@@ -19,6 +19,7 @@ class ReceivedData: ObservableObject {
     
     func save() {
         let dataArray = [buoyName, date, data] as [Any]
-        defaults.set(dataArray, forKey: "\(buoyName) - \(date)")
+        //add data to name - formatted 
+        defaults.set(dataArray, forKey: "\(buoyName)")
     }
 }

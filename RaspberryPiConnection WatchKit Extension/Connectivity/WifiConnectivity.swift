@@ -12,22 +12,33 @@ import SwiftUI
 
 class WifiConnectivity: ObservableObject {
     
-    let hotspotConfig: NEHotspotConfiguration
+    let hotspotConfigBuoy: NEHotspotConfiguration
+    let hotspotConfigLab: NEHotspotConfiguration
     let buoy: Buoy
+    let lab: Lab
     @Published var connectedNetwork = ""
     @Published var isConnected = "connecting..."
     
-    init(buoy: Buoy) {
-        self.hotspotConfig = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
+    init(buoy: Buoy, lab: Lab) {
+        self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
         //self.hotspotConfig.joinOnce = true
         self.buoy = buoy
+        self.hotspotConfigLab = NEHotspotConfiguration(ssid: lab.ssid, passphrase: lab.password, isWEP: false)
+        self.lab = lab
     }
     
     func checkForCurrentNetwork() -> String {
                 //check if lionfish is already configured
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
+            
+            print("ssidsArray: \(ssidsArray)")
             guard ssidsArray.contains(self.buoy.ssid) else {
-                self.connect()
+                self.connect(hotspotConfig: self.hotspotConfigBuoy)
+                return
+            }
+            
+            guard ssidsArray.contains(self.lab.ssid) else {
+                self.connect(hotspotConfig: self.hotspotConfigLab)
                 return
             }
         }
@@ -45,12 +56,19 @@ class WifiConnectivity: ObservableObject {
             if network.ssid == self.buoy.ssid {
 //                _ = self.requestData
                 
-                let session = SessionManager(url: self.buoy.url)
-                session.requestData()
+                let sessionBuoy = SessionManager(url: self.buoy.url)
+                sessionBuoy.requestData()
                 self.isConnected = "connected"
                 
                 // call function to retrieve data
+            
             }
+            if network.ssid == self.lab.ssid {
+                let sessionLab = SessionManager(url: self.lab.url)
+                sessionLab.sendData()
+            }
+            
+           
         }
         return "Dragon Eagle"
     }
@@ -58,7 +76,7 @@ class WifiConnectivity: ObservableObject {
    
 
     
-    func connect() {
+    func connect(hotspotConfig: NEHotspotConfiguration) {
         NEHotspotConfigurationManager.shared.apply(hotspotConfig) {[] (error) in
             if let error = error {
                 print("error = ",error)
