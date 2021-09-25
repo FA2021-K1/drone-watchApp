@@ -40,7 +40,7 @@ struct ContentView: View {
                             Text("\(wifiConnectivity.tick())")
                             Text("State: \(wifiConnectivity.state.rawValue)")
                             Text("WiFi status \(wifiConnectivity.isConnected)")
-                            Text("Connected to \(wifiConnectivity.connectedNetwork)")
+                            Text("Connected to22 \(wifiConnectivity.connectedNetwork)")
                             if wifiConnectivity.isConnected == "connected" {
                                 Text("Connected to \(wifiConnectivity.connectedNetwork)")
                             } else {

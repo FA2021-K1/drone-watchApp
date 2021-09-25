@@ -65,10 +65,9 @@ class WifiConnectivity: ObservableObject {
         
     
     func checkForCurrentNetwork(waitForDisconnect: Bool) {
-                //check if lionfish is already configured
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
             
-            //print("ssidsArray: \(ssidsArray)")
+         //   print("ssidsArray: \(ssidsArray)")
             guard ssidsArray.contains(self.buoy.ssid) else {
                 self.connect(hotspotConfig: self.hotspotConfigBuoy)
                 return
@@ -109,6 +108,8 @@ class WifiConnectivity: ObservableObject {
             }
             if network.ssid == self.lab.ssid {
                 self.state = .connectedToScienceLab
+                self.isConnected = "connected"
+
             }
         }
     }
