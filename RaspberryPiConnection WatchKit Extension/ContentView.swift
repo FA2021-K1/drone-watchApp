@@ -14,12 +14,11 @@ struct Counter {
 struct ContentView: View {
    // @EnvironmentObject var connected: Bool
     @EnvironmentObject var receivedData: ReceivedData
-    @EnvironmentObject  var wifiConnectivity: WifiConnectivity
+    @EnvironmentObject var stateManager: StateManager
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-
     /*@State private var counter = 0
-    
+
     func getIncremented() -> Int {
         self.counter = self.counter + 1
         return self.counter
@@ -34,8 +33,13 @@ struct ContentView: View {
                 if #available(watchOSApplicationExtension 8.0, *) {
                     TimelineView(.periodic(from: Date.now, by: 2)) { context in
                         VStack {
-                            Text("\(wifiConnectivity.tick())")
-                            Text("State: \(wifiConnectivity.state.rawValue)")
+                            
+                            if stateManager.tick() {
+                                Text("Drone2Buoy App")
+                            } else {
+                                Text("update State")
+                            }
+                            Text("State: \(stateManager.state.rawValue)")
                             Text("WiFi status \(wifiConnectivity.isConnected)")
                             if wifiConnectivity.isConnected == "connected" {
                                 Text("Connected to \(wifiConnectivity.connectedNetwork)")

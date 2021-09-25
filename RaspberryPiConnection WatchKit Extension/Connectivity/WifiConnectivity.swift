@@ -9,59 +9,27 @@ import Foundation
 import NetworkExtension
 import SwiftUI
 
-enum States: String {
-    case disconnected
-    case connectedToBuoy
-    case connectedToScienceLab
-    case waitForDisconnect = "Data transmitted, waiting to disconnect"
-}
 
 
-class WifiConnectivity: ObservableObject {
-    
+
+class WifiConnectivity {
+    let stateManager: StateManager
     let hotspotConfigBuoy: NEHotspotConfiguration
     let hotspotConfigLab: NEHotspotConfiguration
     let buoy: Buoy
     let lab: Lab
-    @Published var state: States
-    @Published var connectedNetwork = ""
-    @Published var isConnected = "disconnected"
-    @Published var receivedData = ""
+  
         
-    init(buoy: Buoy, lab: Lab) {
+    init(buoy: Buoy, lab: Lab, state: StateManager) {
         self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
         //self.hotspotConfig.joinOnce = true
         self.buoy = buoy
         self.hotspotConfigLab = NEHotspotConfiguration(ssid: lab.ssid, passphrase: lab.password, isWEP: false)
         self.lab = lab
-        self.state = .disconnected
+        self.stateManager = state
     }
     
-    func tick() -> String {
-        switch self.state {
-        case .disconnected:
-            // waitForNetwork
-            //print("disconnected, wait for networks")
-            self.checkForCurrentNetwork(waitForDisconnect: false)
-        case .connectedToBuoy:
-            // request data
-            let sessionBuoy = SessionManager(url: self.buoy.url, wifiConnectivity: self)
-            sessionBuoy.requestData()
-            //print("connected to buoy, request data")
-        case .connectedToScienceLab:
-            // post data
-            let sessionLab = SessionManager(url: self.lab.url, wifiConnectivity: self)
-            // change once lab is available
-            self.state = .waitForDisconnect
-            //sessionLab.sendData()
-            //print("connected to science lab, send data")
-        case .waitForDisconnect:
-            self.checkForCurrentNetwork(waitForDisconnect: true)
-            //print("data transmission done, wait for disconnect")
-            // wait until network is disconnected, then go back to disconnected state
-        }
-        return "hello world"
-    }
+   
         
     
     func checkForCurrentNetwork(waitForDisconnect: Bool) {
@@ -84,31 +52,31 @@ class WifiConnectivity: ObservableObject {
             
             guard let network = networkOptional else {
                 //self.connectedNetwork = ""
-                self.isConnected = "disconnected"
+                self.stateManager.isConnected = "disconnected"
                 print("access of current network information failed")
-                self.state = .disconnected
+                self.stateManager.state = .disconnected
                 return
             }
             if waitForDisconnect && network.ssid == self.connectedNetwork {
                 // we wait for disconnect and are still connected to the same network
-                self.state = .waitForDisconnect
+                self.stateManager.state = .waitForDisconnect
                 return
             }
             //print(network.ssid)
             // if we expect to be connected
            
-            self.connectedNetwork = network.ssid
+            self.stateManager.connectedNetwork = network.ssid
             if network.ssid == self.buoy.ssid {
 //                _ = self.requestData
-                self.state = .connectedToBuoy
+                self.stateManager.state = .connectedToBuoy
                 
-                self.isConnected = "connected"
+                self.stateManager.isConnected = "connected"
                 
                 // call function to retrieve data
             
             }
             if network.ssid == self.lab.ssid {
-                self.state = .connectedToScienceLab
+                self.stateManager.state = .connectedToScienceLab
             }
         }
     }
