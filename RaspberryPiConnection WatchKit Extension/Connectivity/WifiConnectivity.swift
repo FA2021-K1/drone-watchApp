@@ -83,7 +83,7 @@ class WifiConnectivity: ObservableObject {
             (networkOptional) in
             
             guard let network = networkOptional else {
-                //self.connectedNetwork = ""
+                self.connectedNetwork = ""
                 self.isConnected = "disconnected"
                 print("access of current network information failed")
                 self.state = .disconnected

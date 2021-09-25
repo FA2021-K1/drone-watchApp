@@ -46,5 +46,9 @@
 	<key>com.apple.developer.networking.wifi-info
 </key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>We connect to the RaspberryPi over bluetooth to turn it on/off</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>We connect to the RaspberryPi over bluetooth to turn it on/off</string>
 </dict>
 </plist>
