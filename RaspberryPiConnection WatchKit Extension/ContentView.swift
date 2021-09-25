@@ -15,6 +15,8 @@ struct ContentView: View {
    // @EnvironmentObject var connected: Bool
     @EnvironmentObject var receivedData: ReceivedData
     @EnvironmentObject var stateManager: StateManager
+    @EnvironmentObject var wifiConnectivity: WifiConnectivity
+    @EnvironmentObject var state: State
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     /*@State private var counter = 0
@@ -39,7 +41,7 @@ struct ContentView: View {
                             } else {
                                 Text("update State")
                             }
-                            Text("State: \(stateManager.state.rawValue)")
+                            Text("State: \(state.state.rawValue)")
                             Text("WiFi status \(wifiConnectivity.isConnected)")
                             if wifiConnectivity.isConnected == "connected" {
                                 Text("Connected to \(wifiConnectivity.connectedNetwork)")

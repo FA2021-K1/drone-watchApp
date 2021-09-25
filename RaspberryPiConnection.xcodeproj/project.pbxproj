@@ -26,6 +26,7 @@
 		BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
 		BCE062CE26EA1C03005DBA0E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */; };
 		F8D254F626FF64FF00271C7B /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254F526FF64FF00271C7B /* StateManager.swift */; };
+		F8D254FB26FF7A8800271C7B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254FA26FF7A8800271C7B /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RaspberryPiConnection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		F8D254F526FF64FF00271C7B /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		F8D254FA26FF7A8800271C7B /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,6 @@
 				BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */,
 				BC25477A26FB0D00006200CA /* ReceivedData.swift */,
 				BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */,
-				F8D254F526FF64FF00271C7B /* StateManager.swift */,
 			);
 			path = Connectivity;
 			sourceTree = "<group>";
@@ -197,6 +198,7 @@
 		BCE0620B26E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F8D254F926FF7A7500271C7B /* State */,
 				BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */,
 				BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */,
 				BCE0620E26E8CC8E005DBA0E /* ContentView.swift */,
@@ -245,6 +247,15 @@
 				BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8D254F926FF7A7500271C7B /* State */ = {
+			isa = PBXGroup;
+			children = (
+				F8D254F526FF64FF00271C7B /* StateManager.swift */,
+				F8D254FA26FF7A8800271C7B /* State.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +455,7 @@
 				BCE0621326E8CC8E005DBA0E /* NotificationView.swift in Sources */,
 				BC25477B26FB0D00006200CA /* ReceivedData.swift in Sources */,
 				BC1FF1F826F9B5C600D1C8A0 /* SessionManager.swift in Sources */,
+				F8D254FB26FF7A8800271C7B /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

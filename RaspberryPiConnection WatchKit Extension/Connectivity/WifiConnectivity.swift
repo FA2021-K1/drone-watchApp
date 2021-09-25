@@ -12,21 +12,23 @@ import SwiftUI
 
 
 
-class WifiConnectivity {
-    let stateManager: StateManager
+class WifiConnectivity: ObservableObject {
+    @EnvironmentObject var state: State
     let hotspotConfigBuoy: NEHotspotConfiguration
     let hotspotConfigLab: NEHotspotConfiguration
     let buoy: Buoy
     let lab: Lab
   
+    @Published var connectedNetwork = ""
+    @Published var isConnected = "disconnected"
+    @Published var receivedData = ""
         
-    init(buoy: Buoy, lab: Lab, state: StateManager) {
+    init(buoy: Buoy, lab: Lab) {
         self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
         //self.hotspotConfig.joinOnce = true
         self.buoy = buoy
         self.hotspotConfigLab = NEHotspotConfiguration(ssid: lab.ssid, passphrase: lab.password, isWEP: false)
         self.lab = lab
-        self.stateManager = state
     }
     
    
@@ -52,31 +54,31 @@ class WifiConnectivity {
             
             guard let network = networkOptional else {
                 //self.connectedNetwork = ""
-                self.stateManager.isConnected = "disconnected"
+                self.isConnected = "disconnected"
                 print("access of current network information failed")
-                self.stateManager.state = .disconnected
+                self.state.state = .disconnected
                 return
             }
             if waitForDisconnect && network.ssid == self.connectedNetwork {
                 // we wait for disconnect and are still connected to the same network
-                self.stateManager.state = .waitForDisconnect
+                self.state.state = .waitForDisconnect
                 return
             }
             //print(network.ssid)
             // if we expect to be connected
            
-            self.stateManager.connectedNetwork = network.ssid
+            self.connectedNetwork = network.ssid
             if network.ssid == self.buoy.ssid {
 //                _ = self.requestData
-                self.stateManager.state = .connectedToBuoy
+                self.state.state = .connectedToBuoy
                 
-                self.stateManager.isConnected = "connected"
+                self.isConnected = "connected"
                 
                 // call function to retrieve data
             
             }
             if network.ssid == self.lab.ssid {
-                self.stateManager.state = .connectedToScienceLab
+                self.state.state = .connectedToScienceLab
             }
         }
     }

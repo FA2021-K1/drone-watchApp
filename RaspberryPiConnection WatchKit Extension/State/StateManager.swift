@@ -8,34 +8,19 @@
 import Foundation
 import SwiftUI
 
-enum States: String {
-    case disconnected
-    case connectedToBuoy
-    case connectedToScienceLab
-    case waitForDisconnect = "Data transmitted, waiting to disconnect"
-}
+
 
 class StateManager: ObservableObject {
-    @Published var state: States
+    @EnvironmentObject var state: State
     @Published var ticktock: Bool
-    
-    @Published var connectedNetwork = ""
-    @Published var isConnected = "disconnected"
-    @Published var receivedData = ""
-    
-    
-    var wifiConnectivity: WifiConnectivity
+    @EnvironmentObject var wifiConnectivity: WifiConnectivity
     
     init() {
-        self.state = .disconnected
         self.ticktock = false
-        self.wifiConnectivity =  WifiConnectivity(
-            buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!),
-            lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "http://192.168.1.199:8080/v1/measurements/test")!), state: self)
     }
     
     func tick() -> Bool {
-        switch self.state {
+        switch self.state.state {
         case .disconnected:
             // waitForNetwork
             //print("disconnected, wait for networks")
@@ -49,7 +34,7 @@ class StateManager: ObservableObject {
             // post data
             let sessionLab = SessionManager(url: self.wifiConnectivity.lab.url, wifiConnectivity: self.wifiConnectivity)
             // change once lab is available
-            self.state = .waitForDisconnect
+            self.state.state = .waitForDisconnect
             //sessionLab.sendData()
             //print("connected to science lab, send data")
         case .waitForDisconnect:
