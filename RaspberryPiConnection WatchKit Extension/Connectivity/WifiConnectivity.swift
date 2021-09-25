@@ -13,7 +13,7 @@ import SwiftUI
 
 
 class WifiConnectivity: ObservableObject {
-    @EnvironmentObject var state: State
+   
     let hotspotConfigBuoy: NEHotspotConfiguration
     let hotspotConfigLab: NEHotspotConfiguration
     let buoy: Buoy
@@ -22,7 +22,8 @@ class WifiConnectivity: ObservableObject {
     @Published var connectedNetwork = ""
     @Published var isConnected = "disconnected"
     @Published var receivedData = ""
-        
+    @Published var state = State()
+    
     init(buoy: Buoy, lab: Lab) {
         self.hotspotConfigBuoy = NEHotspotConfiguration(ssid: buoy.ssid, passphrase: buoy.password, isWEP: false)
         //self.hotspotConfig.joinOnce = true
@@ -32,7 +33,9 @@ class WifiConnectivity: ObservableObject {
     }
     
    
-        
+    func pushState(state:State) {
+        self.state = state
+    }
     
     func checkForCurrentNetwork(waitForDisconnect: Bool) {
                 //check if lionfish is already configured
