@@ -10,6 +10,7 @@
 		BC1FF1F826F9B5C600D1C8A0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */; };
 		BC25477B26FB0D00006200CA /* ReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477A26FB0D00006200CA /* ReceivedData.swift */; };
 		BC25477D26FB1F72006200CA /* Buoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477C26FB1F72006200CA /* Buoy.swift */; };
+		BCA6448226FC61CB00F7ACA8 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6448126FC61CB00F7ACA8 /* Lab.swift */; };
 		BCE061FC26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BCE0620126E8CC8E005DBA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE0620026E8CC8E005DBA0E /* Assets.xcassets */; };
 		BCE0620826E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -24,7 +25,6 @@
 		BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */; };
 		BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
 		BCE062CE26EA1C03005DBA0E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */; };
-		F8EB1B7B26FC6C58002616BE /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB1B7A26FC6C58002616BE /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +87,7 @@
 		BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		BC25477A26FB0D00006200CA /* ReceivedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedData.swift; sourceTree = "<group>"; };
 		BC25477C26FB1F72006200CA /* Buoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buoy.swift; sourceTree = "<group>"; };
+		BCA6448126FC61CB00F7ACA8 /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryPiConnection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RaspberryPiConnection WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE0620026E8CC8E005DBA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConnectivity.swift; sourceTree = "<group>"; };
 		BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RaspberryPiConnection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
-		F8EB1B7A26FC6C58002616BE /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +143,19 @@
 			isa = PBXGroup;
 			children = (
 				BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */,
+				BC25477A26FB0D00006200CA /* ReceivedData.swift */,
 				BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */,
-				BC25477C26FB1F72006200CA /* Buoy.swift */,
 			);
 			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		BCA6448326FC6AA300F7ACA8 /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6448126FC61CB00F7ACA8 /* Lab.swift */,
+				BC25477C26FB1F72006200CA /* Buoy.swift */,
+			);
+			path = Stations;
 			sourceTree = "<group>";
 		};
 		BCE061F026E8CC8B005DBA0E = {
@@ -188,16 +197,15 @@
 				BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */,
 				BCE0620C26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift */,
 				BCE0620E26E8CC8E005DBA0E /* ContentView.swift */,
-				BCE0621026E8CC8E005DBA0E /* NotificationController.swift */,
-				BCE0621226E8CC8E005DBA0E /* NotificationView.swift */,
-				BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */,
+				BCA6448326FC6AA300F7ACA8 /* Stations */,
 				BC1FF1F626F9B51400D1C8A0 /* Connectivity */,
 				BCE0621626E8CC91005DBA0E /* Assets.xcassets */,
 				BCE0621B26E8CC91005DBA0E /* Info.plist */,
 				BCE0621C26E8CC91005DBA0E /* PushNotificationPayload.apns */,
+				BCE0621026E8CC8E005DBA0E /* NotificationController.swift */,
+				BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */,
+				BCE0621226E8CC8E005DBA0E /* NotificationView.swift */,
 				BCE0621826E8CC91005DBA0E /* Preview Content */,
-				BC25477A26FB0D00006200CA /* ReceivedData.swift */,
-				F8EB1B7A26FC6C58002616BE /* State.swift */,
 			);
 			path = "RaspberryPiConnection WatchKit Extension";
 			sourceTree = "<group>";
@@ -425,7 +433,7 @@
 				BCE0621126E8CC8E005DBA0E /* NotificationController.swift in Sources */,
 				BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */,
 				BC25477D26FB1F72006200CA /* Buoy.swift in Sources */,
-				F8EB1B7B26FC6C58002616BE /* State.swift in Sources */,
+				BCA6448226FC61CB00F7ACA8 /* Lab.swift in Sources */,
 				BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */,
 				BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */,
 				BCE0620D26E8CC8E005DBA0E /* RaspberryPiConnectionApp.swift in Sources */,
@@ -765,7 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WCM2L8RG39;
+				DEVELOPMENT_TEAM = D65V45DPAH;
 				INFOPLIST_FILE = RaspberryPiConnectionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

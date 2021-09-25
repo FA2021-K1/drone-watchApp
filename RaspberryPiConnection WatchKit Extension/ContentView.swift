@@ -14,7 +14,7 @@ struct Counter {
 struct ContentView: View {
    // @EnvironmentObject var connected: Bool
     @EnvironmentObject var receivedData: ReceivedData
-    @EnvironmentObject  var wifiConnectivity:WifiConnectivity
+    @EnvironmentObject  var wifiConnectivity: WifiConnectivity
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
@@ -32,15 +32,22 @@ struct ContentView: View {
                 // Text("Received from: \(receivedData.buoyName)")
               //  Text("data: \(receivedData.data)")
                 if #available(watchOSApplicationExtension 8.0, *) {
-                    TimelineView(.periodic(from: Date.now, by: 10)) { context in
+                    TimelineView(.periodic(from: Date.now, by: 2)) { context in
                         VStack {
-                            Text("Status: \(wifiConnectivity.checkForCurrentNetwork())")
-                            Text("Connected to \(wifiConnectivity.connectedNetwork)")
+                            Text("\(wifiConnectivity.tick())")
+                            Text("State: \(wifiConnectivity.state.rawValue)")
+                            Text("WiFi status \(wifiConnectivity.isConnected)")
+                            if wifiConnectivity.isConnected == "connected" {
+                                Text("Connected to \(wifiConnectivity.connectedNetwork)")
+                            } else {
+                                Text("Last connected to \(wifiConnectivity.connectedNetwork)")
+                            }
+                            Text("\(wifiConnectivity.receivedData)")
                         }
                     }
                 } else {
                     // Fallback on earlier versions
-                    Text("please update to use always on functionality")
+                    Text("please update to watchOS 8 to use always on functionality")
                 }
                            
             }
