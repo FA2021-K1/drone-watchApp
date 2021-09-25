@@ -38,7 +38,7 @@ class StateManager: ObservableObject {
             let sessionLab = SessionManager(url: self.wifiConnectivity.lab.url, wifiConnectivity: self.wifiConnectivity)
             // change once lab is available
             self.state.state = .waitForDisconnect
-            //sessionLab.sendData()
+            sessionLab.sendData()
             //print("connected to science lab, send data")
         case .waitForDisconnect:
             self.wifiConnectivity.pushState(state: state)
