@@ -35,6 +35,7 @@ struct ContentView: View {
 //
 //                            if stateManager.tick() {
                             Text("Drone2Buoy App \(stateManager.tick().description)")
+                            
 //                            } else {
                                // Text("update State")
 //                            }
@@ -45,16 +46,19 @@ struct ContentView: View {
                             } else {
                                 Text("Last connected to \(stateManager.wifiConnectivity.connectedNetwork)")
                             }
+                            Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
+                            Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
                             Text("\(stateManager.wifiConnectivity.receivedData)")
                         }
                     }
+                    //Text(stateManager.ticktock ? "tick" : "tock")
                 } else {
                     // Fallback on earlier versions
                 }
-            Text("\(wifiConnectivity.receivedData)")
-            Text("Connected to Pi: \(ble.connected)")
-            Text("Pi turned \(ble.status.rawValue)")
-            Text("\(wifiConnectivity.receivedData)")
+//            Text("\(wifiConnectivity.receivedData)")
+//            Text("Connected to Pi: \(ble.connected)")
+//            Text("Pi turned \(ble.status.rawValue)")
+//            Text("\(wifiConnectivity.receivedData)")
                     }
                 
           

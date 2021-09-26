@@ -9,6 +9,7 @@ import Foundation
 import CoreBluetooth
 
 public class BluetoothConnectivity: NSObject, ObservableObject{
+    @Published var state = State()
     
     //the watch node
     var manager: CBCentralManager?
@@ -35,6 +36,56 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
         
     }
     
+    func pushState(state:State) {
+        self.state = state
+    }
+    
+    // start scan if not scanning already
+    func waitForBuoy() {
+        guard let manager = manager else {
+            print("bt manager is unexpectedly nil")
+            return
+        }
+        if !manager.isScanning  {
+            manager.scanForPeripherals(withServices: [serviceCBUUID])
+        }
+    }
+    
+    // true -> on, false -> off
+    public func setPiPower() {
+        guard let wrChar = writeCharacteristic else {
+            print("Write characteristic not yet discovered!")
+            return
+        }
+        raspberryPi?.readValue(for: wrChar) // read value, in reading callback write if necessary
+    }
+    
+    private func updateMode() {
+        guard let wrChar = writeCharacteristic else {
+            print("Write characteristic not yet discovered!")
+            return
+        }
+        switch (status, self.state.state) {
+        case (.ON, .btTurningBuoyOn):
+            self.state.state = .wifiWaitingForConnectionToBuoy
+        case (.ON, .btTurningBuoyOff):
+            let off = Data([0x4f, 0x46, 0x46])
+            raspberryPi?.writeValue(off, for: wrChar, type: .withoutResponse)
+            print("Wrote Value")
+            status = .OFF
+            self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
+        case (.OFF, .btTurningBuoyOn):
+            let on = Data([0x4f, 0x4e])
+            raspberryPi?.writeValue(on, for: wrChar, type: .withoutResponse)
+            print("Wrote Value")
+            status = .ON
+            self.state.state = .wifiWaitingForConnectionToBuoy
+        case (.OFF, .btTurningBuoyOff):
+            self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
+        default:
+            print("did not expect to end up in default case")
+        }
+    }
     
     
 }
@@ -57,8 +108,8 @@ extension BluetoothConnectivity: CBCentralManagerDelegate {
             print("BLE is Powered Off")
         case .poweredOn:
             print("BLE is Powered On")
-            print("2. scanning for peripherals 🔍")
-            manager?.scanForPeripherals(withServices: [serviceCBUUID])
+            self.state.state = .waitingForBuoyOrScienceLab
+//            print("2. scanning for peripherals 🔍")
         @unknown default:
             print("default")
         }
@@ -66,7 +117,6 @@ extension BluetoothConnectivity: CBCentralManagerDelegate {
     
     //start discovering peripherals and connecting to the raspberryPi
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
         if peripheral.name == "Buoy-BLE-Server" {
             print("Pi detected")
             self.raspberryPi = peripheral
@@ -77,7 +127,6 @@ extension BluetoothConnectivity: CBCentralManagerDelegate {
             return
         }
         self.manager?.connect(peripheral, options: nil)
-        
     }
     
     //to make sure peripheral is connected
@@ -114,23 +163,7 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
         
     }
     
-    private func controlPiPower() {
-        guard let wrChar = writeCharacteristic else {
-            print("Write characteristic not yet discovered!")
-            return
-        }
-        
-        if status == .OFF {
-            let on = Data([0x4f, 0x4e])
-            raspberryPi?.writeValue(on, for: wrChar, type: .withoutResponse)
-            print("Wrote Value")
-            status = .ON
-        }
-//        case .ON:
-//            let off = Data([0x4f, 0x46, 0x46])
-//            raspberryPi?.writeValue(off, for: wrChar, type: .withoutResponse)
-//        }
-    }
+
     
     //discover characteristics of the services
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
@@ -138,7 +171,7 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
         
         for characteristic in characteristics {
             print("characteristic \(characteristic)")
-            
+            self.state.state = .btTurningBuoyOn
             //asked to read a characteristic’s value
             if characteristic.properties.contains(.read) {
                 print("\(characteristic.uuid): properties contains .read")
@@ -147,6 +180,10 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
             if characteristic.properties.contains(.write) {
                 print("\(characteristic.uuid): properties contains .write")
                 writeCharacteristic = characteristic
+            }
+            if characteristic.uuid == self.characteristicsCBUUID {
+                print("found the correct characteristics")
+                self.state.state = .btTurningBuoyOn
             }
         }
     }
@@ -171,10 +208,10 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
             status = .ON
         case "OFF":
             status = .OFF
-            controlPiPower()
         default:
             status = .OFF
         }
+        self.updateMode()
     }
 
     }

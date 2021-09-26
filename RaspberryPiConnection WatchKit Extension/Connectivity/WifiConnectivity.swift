@@ -58,12 +58,14 @@ class WifiConnectivity: ObservableObject {
                 self.connectedNetwork = ""
                 self.isConnected = "disconnected"
                 print("access of current network information failed")
-                self.state.state = .disconnected
+                if self.state.state == .wifiWaitForDisconnect {
+                    self.state.state = .waitingForBuoyOrScienceLab // reset to original state
+                }
                 return
             }
             if waitForDisconnect && network.ssid == self.connectedNetwork {
                 // we wait for disconnect and are still connected to the same network
-                self.state.state = .waitForDisconnect
+                self.state.state = .wifiWaitForDisconnect
                 return
             }
             //print(network.ssid)
@@ -72,7 +74,7 @@ class WifiConnectivity: ObservableObject {
             self.connectedNetwork = network.ssid
             if network.ssid == self.buoy.ssid {
 //                _ = self.requestData
-                self.state.state = .connectedToBuoy
+                self.state.state = .wifiConnectedToBuoy
                 
                 self.isConnected = "connected"
                 
@@ -80,7 +82,9 @@ class WifiConnectivity: ObservableObject {
             
             }
             if network.ssid == self.lab.ssid {
-                self.state.state = .connectedToScienceLab
+                self.state.state = .wifiConnectedToScienceLab
+                self.isConnected = "connected"
+
             }
         }
     }
