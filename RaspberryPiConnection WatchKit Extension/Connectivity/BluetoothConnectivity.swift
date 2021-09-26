@@ -68,23 +68,27 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
         switch (status, self.state.state) {
         case (.ON, .btTurningBuoyOn):
             self.state.state = .wifiWaitingForConnectionToBuoy
+            return
         case (.ON, .btTurningBuoyOff):
             let off = Data([0x4f, 0x46, 0x46])
-            raspberryPi?.writeValue(off, for: wrChar, type: .withoutResponse)
+            raspberryPi?.writeValue(off, for: wrChar, type: .withResponse)
             print("Wrote Value")
-            status = .OFF
-            self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
+//            status = .OFF
+//            self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
         case (.OFF, .btTurningBuoyOn):
             let on = Data([0x4f, 0x4e])
-            raspberryPi?.writeValue(on, for: wrChar, type: .withoutResponse)
+            raspberryPi?.writeValue(on, for: wrChar, type: .withResponse)
             print("Wrote Value")
-            status = .ON
-            self.state.state = .wifiWaitingForConnectionToBuoy
+//            status = .ON
+//            self.state.state = .wifiWaitingForConnectionToBuoy
         case (.OFF, .btTurningBuoyOff):
             self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
+            return
         default:
             print("did not expect to end up in default case")
         }
+        // if we did not return, we're doing a read to confirm we actually changed the value
+        raspberryPi?.readValue(for: wrChar)
     }
     
     
