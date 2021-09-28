@@ -11,7 +11,7 @@ import SwiftUI
 
 class SessionManager {
     @EnvironmentObject var receivedData: ReceivedData
-    @EnvironmentObject var state: State
+    @Published var state = State()
     
     var wifiConnectivity: WifiConnectivity
     let url: URL
@@ -22,6 +22,10 @@ class SessionManager {
         self.wifiConnectivity = wifiConnectivity
     }
     
+
+    func pushState(state: State) {
+        self.state = state
+    }
     
    func requestData() {
     //Request Object
@@ -32,7 +36,7 @@ class SessionManager {
         guard let data = data else { return print("HTTP Request Failed \(String(describing: error))") }
         // transmission successful, now wait to disconnect
         self.state.state = .btTurningBuoyOff
-        self.wifiConnectivity.receivedData = "Received Data: \(String(describing: String(data: data, encoding: .utf8)))!"
+        self.wifiConnectivity.receivedData = String(describing: String(data: data, encoding: .utf8))
         print("Received Data: \(String(describing: String(data: data, encoding: .utf8)))!")
         
     }
