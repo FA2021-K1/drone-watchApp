@@ -86,6 +86,7 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
             return
         default:
             print("did not expect to end up in default case")
+            print("status \(status.rawValue) state \(self.state.state.rawValue)")
         }
         // if we did not return, we're doing a read to confirm we actually changed the value
         raspberryPi?.readValue(for: wrChar)
