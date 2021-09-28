@@ -25,7 +25,7 @@ class StateManager: ObservableObject {
             self.bluetoothConnectivity.initBluetooth()
         }
     
-    func tick() -> Bool {
+    func tick(date: Date) -> String {
         switch self.state.state {
         case .btModuleStartup:
             print("waiting for bt to turn on")
@@ -69,6 +69,6 @@ class StateManager: ObservableObject {
         }
         //self.ticktock = !self.ticktock
         print("Tick Tock, current state: \(self.state.state.rawValue)")
-        return true
+        return date.description
     }
 }

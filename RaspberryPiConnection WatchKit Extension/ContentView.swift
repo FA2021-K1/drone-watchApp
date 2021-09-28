@@ -27,7 +27,7 @@ struct ContentView: View {
             if #available(watchOSApplicationExtension 8.0, *) {
                 TimelineView(.periodic(from: Date.now, by: 3)) { context in
                     VStack {
-                        Text("Drone2Buoy App \(stateManager.tick().description)")
+                        Text("Drone2Buoy App \(stateManager.tick(date: context.date))")
                         Text("State: \(stateManager.state.state.rawValue)")
                         Text("WiFi status \(stateManager.wifiConnectivity.isConnected)")
                         if stateManager.wifiConnectivity.isConnected == "connected" {
