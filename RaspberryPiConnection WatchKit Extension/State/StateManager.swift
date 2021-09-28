@@ -44,6 +44,7 @@ class StateManager: ObservableObject {
         case .wifiConnectedToBuoy:
             // request data
             let sessionBuoy = SessionManager(url: self.wifiConnectivity.buoy.url, wifiConnectivity: self.wifiConnectivity)
+            sessionBuoy.pushState(state: self.state)
             sessionBuoy.requestData()
             //print("connected to buoy, request data")
             
@@ -51,8 +52,9 @@ class StateManager: ObservableObject {
             // post data
             let sessionLab = SessionManager(url: self.wifiConnectivity.lab.url, wifiConnectivity: self.wifiConnectivity)
             // change once lab is available
-            self.state.state = .wifiWaitForDisconnect
+            sessionLab.pushState(state: self.state)
             sessionLab.sendData()
+
             //print("connected to science lab, send data")
         
         case .btTurningBuoyOff:
