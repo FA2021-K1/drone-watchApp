@@ -25,7 +25,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             if #available(watchOSApplicationExtension 8.0, *) {
-                TimelineView(.periodic(from: Date.now, by: 3)) { context in
+                TimelineView(.periodic(from: Date.now, by: 1)) { context in
                     VStack {
                         Text("Drone2Buoy App \(stateManager.tick(date: context.date))")
                         Text("State: \(stateManager.state.state.rawValue)")
