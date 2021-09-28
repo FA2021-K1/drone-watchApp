@@ -9,7 +9,7 @@ import Foundation
 
 enum States: String {
     // Step -1 (setup)
-    case btWaitingForPowerOn
+    case btModuleStartup
     // Step 0: wait until we see a BT (buoy) or wifi (sciencelab) device
     case waitingForBuoyOrScienceLab
     // Step 0b: (only for buoy) turn buoy wifi on
@@ -30,6 +30,6 @@ class State: ObservableObject {
     
     
     init() {
-        self.state = .btWaitingForPowerOn
+        self.state = .btModuleStartup
     }
 }

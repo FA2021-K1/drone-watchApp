@@ -27,7 +27,7 @@ class StateManager: ObservableObject {
     
     func tick() -> Bool {
         switch self.state.state {
-        case .btWaitingForPowerOn:
+        case .btModuleStartup:
             print("waiting for bt to turn on")
         case .waitingForBuoyOrScienceLab:
             self.bluetoothConnectivity.waitForBuoy() // start scanning for peripherals
