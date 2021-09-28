@@ -21,7 +21,6 @@ class WifiConnectivity: ObservableObject {
   
     @Published var connectedNetwork = ""
     @Published var isConnected = "disconnected"
-    @Published var receivedData = ""
     @Published var state = State()
     
     init(buoy: Buoy, lab: Lab) {

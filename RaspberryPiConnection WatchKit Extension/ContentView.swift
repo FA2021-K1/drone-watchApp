@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct ContentView: View {
    // @EnvironmentObject var connected: Bool
-    @EnvironmentObject var receivedData: ReceivedData
+   // @EnvironmentObject var receivedData: ReceivedData
     @EnvironmentObject var stateManager: StateManager
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
@@ -37,7 +37,7 @@ struct ContentView: View {
                         }
                         Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
                         Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
-                        Text("\(stateManager.wifiConnectivity.receivedData)")
+                         
                     }
                 }
 //                    Text(stateManager.ticktock ? "tick" : "tock")

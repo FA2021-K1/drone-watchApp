@@ -15,9 +15,10 @@ class StateManager: ObservableObject {
     @Published var ticktock: Bool = false
     @Published var wifiConnectivity = WifiConnectivity(
         buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!),
-        lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "http://192.168.1.199:8080/v1/measurements/test")!))
+        lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
         
     @Published var bluetoothConnectivity = BluetoothConnectivity()
+    
     
         init() {
             self.wifiConnectivity.pushState(state: self.state)
@@ -26,6 +27,8 @@ class StateManager: ObservableObject {
         }
     
     func tick() -> Bool {
+        print("Tick Tock, current state: \(self.state.state.rawValue)")
+
         switch self.state.state {
         case .btModuleStartup:
             print("waiting for bt to turn on")
@@ -54,11 +57,15 @@ class StateManager: ObservableObject {
             // change once lab is available
             sessionLab.pushState(state: self.state)
             sessionLab.sendData()
+            //reset buoyId because the data received are now deleted from UserDefaults 
+            sessionLab.buoyId = -1
 
             //print("connected to science lab, send data")
         
         case .btTurningBuoyOff:
             self.bluetoothConnectivity.setPiPower()
+            print("automatically switch to initial state for now, reenable bt turn off later")
+            self.state.state = .waitingForBuoyOrScienceLab
             
         case .wifiWaitForDisconnect:
             self.wifiConnectivity.pushState(state: state)
@@ -68,7 +75,6 @@ class StateManager: ObservableObject {
         
         }
         //self.ticktock = !self.ticktock
-        print("Tick Tock, current state: \(self.state.state.rawValue)")
         return true
     }
 }

@@ -14,7 +14,7 @@ struct RaspberryPiConnectionApp: App {
     var timer = Timer()
    
    
-    var receivedData = ReceivedData()
+  //  var receivedData = ReceivedData()
     var stateManager = StateManager()
     
     init() {
@@ -26,7 +26,7 @@ struct RaspberryPiConnectionApp: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-                    .environmentObject(receivedData)
+             //       .environmentObject(receivedData)
                     .environmentObject(stateManager)
             }
         }

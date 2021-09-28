@@ -10,16 +10,15 @@ import SwiftUI
 import Network
 
 //Model
-class ReceivedData: ObservableObject {
-    @Published var date = Date()
-    @Published var buoyName: String = ""
-    @Published var data: String = ""
-    
+class ReceivedData {
+    var date = Date()
+    var data: [String:Any] = ["message":"Hello"]
     let defaults = UserDefaults.standard
+   
     
-    func save() {
-        let dataArray = [buoyName, date, data] as [Any]
+    func save(data: [String:Any],buoyId: Int) {
+     //   let dataArray = [buoyId, date, data] as [Any]
         //add data to name - formatted 
-        defaults.set(dataArray, forKey: "\(buoyName)")
+        defaults.set(data, forKey: "\(buoyId)")
     }
 }
