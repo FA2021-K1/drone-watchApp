@@ -20,7 +20,7 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
     
     let serviceCBUUID = CBUUID(string: "686fc1ae-b815-48a4-9b26-300eaefd2b03")
     let characteristicsCBUUID = CBUUID(string: "77fc5631-ab53-44fb-a5c0-753b08423814")
-       
+    
     enum Mode: String {
         case ON
         case OFF
@@ -91,7 +91,7 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
 
 extension BluetoothConnectivity: CBCentralManagerDelegate {
     
-   
+    
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .unsupported:
@@ -108,7 +108,7 @@ extension BluetoothConnectivity: CBCentralManagerDelegate {
         case .poweredOn:
             print("BLE is Powered On")
             self.state.state = .waitingForBuoyOrScienceLab
-//            print("2. scanning for peripherals 🔍")
+            //            print("2. scanning for peripherals 🔍")
         @unknown default:
             print("default")
         }
@@ -137,7 +137,7 @@ extension BluetoothConnectivity: CBCentralManagerDelegate {
     
     public func centralManager (_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         connected = "NO"
-    
+        
         print("Attempts to reconnect to \(peripheral.name ?? "No name")")
         if error != nil {
             print("Error 7 \(error?.localizedDescription ?? "reconnecting to the peripheral")")
@@ -162,7 +162,7 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
         
     }
     
-
+    
     
     //discover characteristics of the services
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
@@ -189,14 +189,14 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
     
     //updates
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic,
-                    error: Error?) {
+                           error: Error?) {
         if let error = error {
-                print(error)
-                return
-            }
-            guard let value = characteristic.value else {
-                return
-            }
+            print(error)
+            return
+        }
+        guard let value = characteristic.value else {
+            return
+        }
         
         receivedStatus = String(bytes: value, encoding: .utf8) ?? "Nil"
         
@@ -212,10 +212,10 @@ extension BluetoothConnectivity: CBPeripheralDelegate {
         }
         self.updateMode()
     }
-
-    }
-
     
+}
+
+
 
 
 

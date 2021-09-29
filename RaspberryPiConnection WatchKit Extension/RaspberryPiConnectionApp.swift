@@ -14,6 +14,7 @@ struct RaspberryPiConnectionApp: App {
     var timer = Timer()
     var stateManager = StateManager()
     
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
@@ -21,7 +22,7 @@ struct RaspberryPiConnectionApp: App {
                     .environmentObject(stateManager)
             }
         }
-
+        
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

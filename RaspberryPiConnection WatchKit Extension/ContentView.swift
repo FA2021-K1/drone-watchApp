@@ -30,7 +30,10 @@ struct ContentView: View {
                             }
                             Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
                             Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
-                             
+                            Text("Data received \(stateManager.receivedData.data.description)")
+                            NavigationLink("Configuration") {
+                                Setup().environmentObject(stateManager)
+                            }
                         }
                     }
                 } else {
@@ -49,6 +52,10 @@ struct ContentView: View {
                 }
                 Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
                 Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
+                Text("Data received \(stateManager.receivedData.data.description)")
+                NavigationLink("Configuration") {
+                    Setup().environmentObject(stateManager)
+                }
             }.onReceive(timer) { input in stateManager.tick(date: Date())
             }
             #endif

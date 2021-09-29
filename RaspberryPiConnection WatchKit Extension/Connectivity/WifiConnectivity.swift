@@ -13,12 +13,12 @@ import SwiftUI
 
 
 class WifiConnectivity: ObservableObject {
-   
+    
     let hotspotConfigBuoy: NEHotspotConfiguration
     let hotspotConfigLab: NEHotspotConfiguration
     let buoy: Buoy
     let lab: Lab
-  
+    
     @Published var connectedNetwork = ""
     @Published var isConnected = "disconnected"
     @Published var state = State()
@@ -31,9 +31,19 @@ class WifiConnectivity: ObservableObject {
         self.lab = lab
     }
     
-   
+    
     func pushState(state:State) {
         self.state = state
+    }
+    
+    func setupWifiScienceLab() {
+        NEHotspotConfigurationManager.shared.removeConfiguration(forSSID: lab.ssid)
+        self.connect(hotspotConfig: self.hotspotConfigLab)
+    }
+    
+    func setupWifiBuoy() {
+        NEHotspotConfigurationManager.shared.removeConfiguration(forSSID: buoy.ssid)
+        self.connect(hotspotConfig: self.hotspotConfigBuoy)
     }
     
     func checkForCurrentNetwork(waitForDisconnect: Bool) {
@@ -52,7 +62,7 @@ class WifiConnectivity: ObservableObject {
             (networkOptional) in
             
             guard let network = networkOptional else {
-                self.connectedNetwork = ""
+                //                self.connectedNetwork = ""
                 self.isConnected = "disconnected"
                 print("access of current network information failed")
                 if self.state.state == .wifiWaitForDisconnect {
@@ -67,27 +77,27 @@ class WifiConnectivity: ObservableObject {
             }
             //print(network.ssid)
             // if we expect to be connected
-           
+            
             self.connectedNetwork = network.ssid
             if network.ssid == self.buoy.ssid {
-//                _ = self.requestData
+                //                _ = self.requestData
                 self.state.state = .wifiConnectedToBuoy
                 
                 self.isConnected = "connected"
                 
                 // call function to retrieve data
-            
+                
             }
             if network.ssid == self.lab.ssid {
                 self.state.state = .wifiConnectedToScienceLab
                 self.isConnected = "connected"
-
+                
             }
         }
     }
     
-   
-
+    
+    
     
     func connect(hotspotConfig: NEHotspotConfiguration) {
         NEHotspotConfigurationManager.shared.apply(hotspotConfig) {[] (error) in

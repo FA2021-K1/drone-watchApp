@@ -18,10 +18,10 @@ class StateManager: ObservableObject {
     @Published var ticktock: Bool = false
     @Published var wifiConnectivity = WifiConnectivity(
         buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!),
-        lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
-    
+        lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
+    @Published var receivedData = ReceivedData()
     @Published var bluetoothConnectivity = BluetoothConnectivity()
-     var buoyID = 0
+    var buoyID = 0
     
 #if os(iOS)
     var cancellable1 : AnyCancellable?
@@ -32,8 +32,9 @@ class StateManager: ObservableObject {
         self.wifiConnectivity.pushState(state: self.state)
         self.bluetoothConnectivity.pushState(state: self.state)
         self.bluetoothConnectivity.initBluetooth()
-        #if os(iOS)
-        print("iphone version")
+        
+        
+#if os(iOS)
         cancellable1 = wifiConnectivity.objectWillChange.sink { (_) in
             self.objectWillChange.send()
         }
@@ -62,6 +63,7 @@ class StateManager: ObservableObject {
         case .wifiConnectedToBuoy:
             // 1  request data
             let sessionBuoy = SessionManager(url: self.wifiConnectivity.buoy.url, wifiConnectivity: self.wifiConnectivity)
+            sessionBuoy.receivedData = self.receivedData
             sessionBuoy.pushState(state: self.state)
             sessionBuoy.requestData(buoyID: buoyID)
             // 2 append buoyID to receive data from next buoy

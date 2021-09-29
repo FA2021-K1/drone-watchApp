@@ -10,6 +10,8 @@
 		BC1FF1F826F9B5C600D1C8A0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */; };
 		BC25477B26FB0D00006200CA /* ReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477A26FB0D00006200CA /* ReceivedData.swift */; };
 		BC25477D26FB1F72006200CA /* Buoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477C26FB1F72006200CA /* Buoy.swift */; };
+		BC3A22DD2704997200BC471C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A22DC2704997200BC471C /* Setup.swift */; };
+		BC3A22DE2704A49E00BC471C /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A22DC2704997200BC471C /* Setup.swift */; };
 		BC74EE1026FF0206009AE9C1 /* BluetoothConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74EE0F26FF0206009AE9C1 /* BluetoothConnectivity.swift */; };
 		BCA6448226FC61CB00F7ACA8 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6448126FC61CB00F7ACA8 /* Lab.swift */; };
 		BCE061FC26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BCE061FB26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -121,6 +123,7 @@
 		BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		BC25477A26FB0D00006200CA /* ReceivedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedData.swift; sourceTree = "<group>"; };
 		BC25477C26FB1F72006200CA /* Buoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buoy.swift; sourceTree = "<group>"; };
+		BC3A22DC2704997200BC471C /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		BC74EE0F26FF0206009AE9C1 /* BluetoothConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectivity.swift; sourceTree = "<group>"; };
 		BCA6448126FC61CB00F7ACA8 /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		BCE061F726E8CC8B005DBA0E /* RaspberryPiConnection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryPiConnection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +291,7 @@
 				BCE0621426E8CC8E005DBA0E /* ComplicationController.swift */,
 				BCE0621226E8CC8E005DBA0E /* NotificationView.swift */,
 				BCE0621826E8CC91005DBA0E /* Preview Content */,
+				BC3A22DC2704997200BC471C /* Setup.swift */,
 			);
 			path = "RaspberryPiConnection WatchKit Extension";
 			sourceTree = "<group>";
@@ -656,6 +660,7 @@
 				BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */,
 				BC25477D26FB1F72006200CA /* Buoy.swift in Sources */,
 				BCA6448226FC61CB00F7ACA8 /* Lab.swift in Sources */,
+				BC3A22DD2704997200BC471C /* Setup.swift in Sources */,
 				F8D254F626FF64FF00271C7B /* StateManager.swift in Sources */,
 				BCE0620F26E8CC8E005DBA0E /* ContentView.swift in Sources */,
 				BCE0621526E8CC8E005DBA0E /* ComplicationController.swift in Sources */,
@@ -687,6 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3A22DE2704A49E00BC471C /* Setup.swift in Sources */,
 				F86E9F9527044AF00011F520 /* ContentView.swift in Sources */,
 				F86E9F8E27044AAF0011F520 /* StateManager.swift in Sources */,
 				F86E9F8F27044AAF0011F520 /* State.swift in Sources */,
