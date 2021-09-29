@@ -26,6 +26,7 @@
 		BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */; };
 		BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
 		BCE062CE26EA1C03005DBA0E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */; };
+		BCFFB88C2704530F007A6061 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFFB88B2704530F007A6061 /* ExternalAccessory.framework */; };
 		F86E9F6327044A030011F520 /* RaspberryiPhoneAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */; };
 		F86E9F6727044A0A0011F520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E9F6627044A0A0011F520 /* Assets.xcassets */; };
 		F86E9F6A27044A0A0011F520 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E9F6927044A0A0011F520 /* Preview Assets.xcassets */; };
@@ -145,6 +146,8 @@
 		BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConnectivity.swift; sourceTree = "<group>"; };
 		BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RaspberryPiConnection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
+		BCFFB88A2704530F007A6061 /* RaspberryiPhoneApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RaspberryiPhoneApp.entitlements; sourceTree = "<group>"; };
+		BCFFB88B2704530F007A6061 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		F86E9F6027044A030011F520 /* RaspberryiPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryiPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryiPhoneAppApp.swift; sourceTree = "<group>"; };
 		F86E9F6627044A0A0011F520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFFB88C2704530F007A6061 /* ExternalAccessory.framework in Frameworks */,
 				F86E9F8C27044A540011F520 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +321,7 @@
 		BCE062CC26EA1C03005DBA0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCFFB88B2704530F007A6061 /* ExternalAccessory.framework */,
 				F86E9F8B27044A540011F520 /* NetworkExtension.framework */,
 				BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */,
 			);
@@ -326,6 +331,7 @@
 		F86E9F6127044A030011F520 /* RaspberryiPhoneApp */ = {
 			isa = PBXGroup;
 			children = (
+				BCFFB88A2704530F007A6061 /* RaspberryiPhoneApp.entitlements */,
 				F86E9F9827044CA00011F520 /* Info.plist */,
 				F86E9F8A27044A380011F520 /* RaspberryiPhoneAppRelease.entitlements */,
 				F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */,
@@ -1079,6 +1085,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = RaspberryiPhoneApp/RaspberryiPhoneApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaspberryiPhoneApp/Preview Content\"";

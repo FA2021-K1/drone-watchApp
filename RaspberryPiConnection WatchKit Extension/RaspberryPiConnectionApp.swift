@@ -26,7 +26,6 @@ struct RaspberryPiConnectionApp: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-             //       .environmentObject(receivedData)
                     .environmentObject(stateManager)
             }
         }

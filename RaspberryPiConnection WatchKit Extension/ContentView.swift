@@ -10,21 +10,13 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ContentView: View {
-   // @EnvironmentObject var connected: Bool
-   // @EnvironmentObject var receivedData: ReceivedData
     @EnvironmentObject var stateManager: StateManager
     
     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-    /*@State private var counter = 0
-
-    func getIncremented() -> Int {
-        self.counter = self.counter + 1
-        return self.counter
-    }*/
-    
+   
     var body: some View {
         ScrollView {
-            #if TARGET_OS_WATCH
+            #if os(watchOS)
                 if #available(watchOSApplicationExtension 8.0, *) {
                     TimelineView(.periodic(from: Date.now, by: 1)) { context in
                         VStack {
@@ -48,7 +40,7 @@ struct ContentView: View {
                 }
             #else
             VStack {
-                Text("Drone2Buoy App \(stateManager.tick(date: Date()))")
+                Text("Drone2Buoy App")
                 Text("State: \(stateManager.state.state.rawValue)")
                 Text("WiFi status \(stateManager.wifiConnectivity.isConnected)")
                 if stateManager.wifiConnectivity.isConnected == "connected" {

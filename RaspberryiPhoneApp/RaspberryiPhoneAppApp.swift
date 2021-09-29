@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct RaspberryiPhoneAppApp: App {
     //EnvironmentObject
-    var timer = Timer()
    
    
   //  var receivedData = ReceivedData()
