@@ -35,31 +35,20 @@ class SessionManager {
         
         //Create data task -- defaults to GET //request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            let str = String(decoding: data!, as: UTF8.self)
+            if let data = data {
+            let str = String(decoding: data, as: UTF8.self)
             print("DATA NO ENCODING: \(str)")
 
-            if error != nil {
-                print(error!)
-                self.state.state = .btTurningBuoyOff
+            self.receivedData.data = data
+            self.state.state = .btTurningBuoyOff
+            self.receivedData.save(data: data, buoyId: buoyID)
+                        
             } else {
-                do {
-                  
-                    if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:Any]] {
-                        print("JSON received: \(json)")
-                        // print("buoyId")
-                        self.receivedData.data = json
-                        self.receivedData.save(data: json, buoyId: buoyID)
-                        self.state.state = .btTurningBuoyOff
-                        
-                        
-                    } else {
-                        print("JSON not valid")
-                    }
-                } catch let error as NSError {
-                    print(error)
-                    self.state.state = .btTurningBuoyOff
-                }
+                print("NO DATA -- ")
+                self.state.state = .btTurningBuoyOff
             }
+                   
+            
             
         }
         
@@ -79,46 +68,47 @@ class SessionManager {
         let sesh = URLSession(configuration: config)
         
         for id in 0...buoyID {
-            if let data = UserDefaults.standard.object(forKey: "\(id)") {
-                //print("data from UserDefaults: \(data)")
-                
-                if let jsonData2 = try? JSONSerialization.data(withJSONObject: UserDefaults.standard.object(forKey: "\(id)") as? [[String: Any]] ?? "no data found") {
-                    
-                    print("JSON DATA TO SEND: \(jsonData2)")
-                    
+            if let data = (UserDefaults.standard.data(forKey: "\(id)")) {
+             
+                let str = String(decoding: data, as: UTF8.self)
+                print("data from UserDefaults: \(str)")
+
+              
                     // create post request
                     let url = url
                     var request = URLRequest(url: url)
                     request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("*/*", forHTTPHeaderField: "Accept")
                     
-                    // insert json data to the request
-                    request.httpBody = jsonData2
+                    // insert  data  to the request
+                request.httpBody = data
                     let task = sesh.dataTask(with: request) { data, response, error in
                         if error != nil {
                             print("Errror here \(error!)")
                         } else {
                             
-                            print(data!)
                             guard let data = data, error == nil else {
                                 print(error?.localizedDescription ?? "No data")
                                 return
                             }
+                             
+                            let str = String(decoding: data, as: UTF8.self)
+                            print("Response: \(str)")
                             // transmission successful, now wait to disconnect
-                            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                            if let responseJSON = responseJSON as? [String: String] {
-                                print("responseJSON!! : \(responseJSON)")
-                            } else {
-                                print("NO RESPONSE")
+                           // let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                           // if let responseJSON = responseJSON as? String {
+                           //     print("responseJSON!! : \(responseJSON.description)")
                             }
-                        }
+                        
                     }
                     
                     task.resume()
-                }
             } else {
                 print("No data, nothing to send")
             }
         }
         self.state.state = .wifiWaitForDisconnect
     }
+
 }

@@ -19,6 +19,8 @@ class StateManager: ObservableObject {
     @Published var wifiConnectivity = WifiConnectivity(
         buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!),
         lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
+       // lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "https://hookb.in/XkY16aJaPOuDYMQQYMKQ")!))
+        
     @Published var receivedData = ReceivedData()
     @Published var bluetoothConnectivity = BluetoothConnectivity()
     var buoyID = 0
@@ -67,6 +69,7 @@ class StateManager: ObservableObject {
             sessionBuoy.pushState(state: self.state)
             sessionBuoy.requestData(buoyID: buoyID)
             // 2 append buoyID to receive data from next buoy
+            print("buoyID: \(buoyID)")
             buoyID += 1
         case .wifiConnectedToScienceLab:
             // post data
@@ -76,8 +79,8 @@ class StateManager: ObservableObject {
             //1 -- send data to lab
             sessionLab.sendData(buoyID: buoyID)
             //2 -- delete data from UserDefaults
-            let domain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: domain)
+           // let domain = Bundle.main.bundleIdentifier!
+           // UserDefaults.standard.removePersistentDomain(forName: domain)
             //3 -- reset buoyId because the data received are now deleted from UserDefaults
             buoyID = 0
             print("Data transmitted to ScienceLab and deleted all data from UserDefaults!")

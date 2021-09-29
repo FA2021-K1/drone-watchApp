@@ -12,11 +12,11 @@ import Network
 //Model
 class ReceivedData {
     var date = Date()
-    var data: String = ""
+    var data: Data = Data()
     let defaults = UserDefaults.standard
    
     
-    func save(data: String,buoyId: Int) {
+    func save(data: Data,buoyId: Int) {
         defaults.set(data, forKey: "\(buoyId)")
     }
 }
