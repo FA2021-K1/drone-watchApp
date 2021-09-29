@@ -21,6 +21,8 @@ class StateManager: ObservableObject {
         lab: Lab(ssid: "LS1 FA", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
     
     @Published var bluetoothConnectivity = BluetoothConnectivity()
+     var buoyID = 0
+    
 #if os(iOS)
     var cancellable1 : AnyCancellable?
     var cancellable2 : AnyCancellable?
@@ -42,7 +44,6 @@ class StateManager: ObservableObject {
     
     func tick(date: Date) -> String {
         print("Tick Tock, current state: \(self.state.state.rawValue)")
-        
         switch self.state.state {
         case .btModuleStartup:
             print("waiting for bt to turn on")
@@ -59,36 +60,33 @@ class StateManager: ObservableObject {
             self.wifiConnectivity.checkForCurrentNetwork(waitForDisconnect: false)
             
         case .wifiConnectedToBuoy:
-            // request data
+            // 1  request data
             let sessionBuoy = SessionManager(url: self.wifiConnectivity.buoy.url, wifiConnectivity: self.wifiConnectivity)
             sessionBuoy.pushState(state: self.state)
-            sessionBuoy.requestData()
-            //print("connected to buoy, request data")
-            
+            sessionBuoy.requestData(buoyID: buoyID)
+            // 2 append buoyID to receive data from next buoy
+            buoyID += 1
         case .wifiConnectedToScienceLab:
             // post data
             let sessionLab = SessionManager(url: self.wifiConnectivity.lab.url, wifiConnectivity: self.wifiConnectivity)
             // change once lab is available
             sessionLab.pushState(state: self.state)
-            sessionLab.sendData()
-            //reset buoyId because the data received are now deleted from UserDefaults
-            sessionLab.buoyId = -1
-            
-            //print("connected to science lab, send data")
-            
+            //1 -- send data to lab
+            sessionLab.sendData(buoyID: buoyID)
+            //2 -- delete data from UserDefaults
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            //3 -- reset buoyId because the data received are now deleted from UserDefaults
+            buoyID = 0
+            print("Data transmitted to ScienceLab and deleted all data from UserDefaults!")
         case .btTurningBuoyOff:
             self.bluetoothConnectivity.setPiPower()
             print("automatically switch to initial state for now, reenable bt turn off later")
             self.state.state = .waitingForBuoyOrScienceLab
-            
         case .wifiWaitForDisconnect:
             self.wifiConnectivity.pushState(state: state)
             self.wifiConnectivity.checkForCurrentNetwork(waitForDisconnect: true)
-            //print("data transmission done, wait for disconnect")
-            // wait until network is disconnected, then go back to disconnected state
-            
         }
-        //self.ticktock = !self.ticktock
         return date.description
     }
 }

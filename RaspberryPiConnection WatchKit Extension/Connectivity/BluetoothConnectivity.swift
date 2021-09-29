@@ -50,8 +50,6 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
             manager.scanForPeripherals(withServices: [serviceCBUUID])
         }
     }
-    
-    // true -> on, false -> off
     public func setPiPower() {
         guard let wrChar = writeCharacteristic else {
             print("Write characteristic not yet discovered!")
@@ -73,14 +71,10 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
             let off = Data([0x4f, 0x46, 0x46])
             raspberryPi?.writeValue(off, for: wrChar, type: .withResponse)
             print("Wrote Value")
-//            status = .OFF
-//            self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
         case (.OFF, .btTurningBuoyOn):
             let on = Data([0x4f, 0x4e])
             raspberryPi?.writeValue(on, for: wrChar, type: .withResponse)
             print("Wrote Value")
-//            status = .ON
-//            self.state.state = .wifiWaitingForConnectionToBuoy
         case (.OFF, .btTurningBuoyOff):
             self.state.state = .waitingForBuoyOrScienceLab // back to the beginning
             return

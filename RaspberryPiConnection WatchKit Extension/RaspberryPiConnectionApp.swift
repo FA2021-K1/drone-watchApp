@@ -12,15 +12,7 @@ struct RaspberryPiConnectionApp: App {
     
     //EnvironmentObject
     var timer = Timer()
-   
-   
-  //  var receivedData = ReceivedData()
     var stateManager = StateManager()
-    
-    init() {
-        
-        
-    }
     
     @SceneBuilder var body: some Scene {
         WindowGroup {

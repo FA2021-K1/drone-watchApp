@@ -38,8 +38,6 @@ class WifiConnectivity: ObservableObject {
     
     func checkForCurrentNetwork(waitForDisconnect: Bool) {
         NEHotspotConfigurationManager.shared.getConfiguredSSIDs { (ssidsArray) in
-            
-         //   print("ssidsArray: \(ssidsArray)")
             guard ssidsArray.contains(self.buoy.ssid) else {
                 self.connect(hotspotConfig: self.hotspotConfigBuoy)
                 return

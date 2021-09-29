@@ -33,10 +33,9 @@ struct ContentView: View {
                              
                         }
                     }
-    //                    Text(stateManager.ticktock ? "tick" : "tock")
                 } else {
-                    Text("please update to watchos 8 or later")
                     // Fallback on earlier versions
+                    Text("please update to watchos 8 or later")
                 }
             #else
             VStack {
