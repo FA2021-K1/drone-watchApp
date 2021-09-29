@@ -26,6 +26,22 @@
 		BCE0623126E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0623026E8CC91005DBA0E /* RaspberryPiConnectionUITests.swift */; };
 		BCE0624726EA0C51005DBA0E /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
 		BCE062CE26EA1C03005DBA0E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */; };
+		F86E9F6327044A030011F520 /* RaspberryiPhoneAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */; };
+		F86E9F6727044A0A0011F520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E9F6627044A0A0011F520 /* Assets.xcassets */; };
+		F86E9F6A27044A0A0011F520 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E9F6927044A0A0011F520 /* Preview Assets.xcassets */; };
+		F86E9F7427044A0B0011F520 /* RaspberryiPhoneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E9F7327044A0B0011F520 /* RaspberryiPhoneAppTests.swift */; };
+		F86E9F7E27044A0C0011F520 /* RaspberryiPhoneAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E9F7D27044A0C0011F520 /* RaspberryiPhoneAppUITests.swift */; };
+		F86E9F8027044A0C0011F520 /* RaspberryiPhoneAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E9F7F27044A0C0011F520 /* RaspberryiPhoneAppUITestsLaunchTests.swift */; };
+		F86E9F8C27044A540011F520 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86E9F8B27044A540011F520 /* NetworkExtension.framework */; };
+		F86E9F8D27044A830011F520 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6448126FC61CB00F7ACA8 /* Lab.swift */; };
+		F86E9F8E27044AAF0011F520 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254F526FF64FF00271C7B /* StateManager.swift */; };
+		F86E9F8F27044AAF0011F520 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254FA26FF7A8800271C7B /* State.swift */; };
+		F86E9F9027044AAF0011F520 /* Buoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477C26FB1F72006200CA /* Buoy.swift */; };
+		F86E9F9127044AAF0011F520 /* WifiConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */; };
+		F86E9F9227044AAF0011F520 /* ReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25477A26FB0D00006200CA /* ReceivedData.swift */; };
+		F86E9F9327044AAF0011F520 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF1F726F9B5C600D1C8A0 /* SessionManager.swift */; };
+		F86E9F9427044AAF0011F520 /* BluetoothConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74EE0F26FF0206009AE9C1 /* BluetoothConnectivity.swift */; };
+		F86E9F9527044AF00011F520 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0620E26E8CC8E005DBA0E /* ContentView.swift */; };
 		F8D254F626FF64FF00271C7B /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254F526FF64FF00271C7B /* StateManager.swift */; };
 		F8D254FB26FF7A8800271C7B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D254FA26FF7A8800271C7B /* State.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +74,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = BCE061FA26E8CC8B005DBA0E;
 			remoteInfo = "RaspberryPiConnection WatchKit App";
+		};
+		F86E9F7027044A0B0011F520 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F86E9F5F27044A030011F520;
+			remoteInfo = RaspberryiPhoneApp;
+		};
+		F86E9F7A27044A0B0011F520 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCE061F126E8CC8B005DBA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F86E9F5F27044A030011F520;
+			remoteInfo = RaspberryiPhoneApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -115,6 +145,18 @@
 		BCE0624626EA0C51005DBA0E /* WifiConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConnectivity.swift; sourceTree = "<group>"; };
 		BCE062CB26EA1C03005DBA0E /* RaspberryPiConnection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RaspberryPiConnection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
+		F86E9F6027044A030011F520 /* RaspberryiPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspberryiPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryiPhoneAppApp.swift; sourceTree = "<group>"; };
+		F86E9F6627044A0A0011F520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F86E9F6927044A0A0011F520 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F86E9F6F27044A0B0011F520 /* RaspberryiPhoneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryiPhoneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86E9F7327044A0B0011F520 /* RaspberryiPhoneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryiPhoneAppTests.swift; sourceTree = "<group>"; };
+		F86E9F7927044A0B0011F520 /* RaspberryiPhoneAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspberryiPhoneAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86E9F7D27044A0C0011F520 /* RaspberryiPhoneAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryiPhoneAppUITests.swift; sourceTree = "<group>"; };
+		F86E9F7F27044A0C0011F520 /* RaspberryiPhoneAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryiPhoneAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F86E9F8A27044A380011F520 /* RaspberryiPhoneAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RaspberryiPhoneAppRelease.entitlements; sourceTree = "<group>"; };
+		F86E9F8B27044A540011F520 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		F86E9F9827044CA00011F520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F8D254F526FF64FF00271C7B /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		F8D254FA26FF7A8800271C7B /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +178,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BCE0622926E8CC91005DBA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F5D27044A030011F520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E9F8C27044A540011F520 /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F6C27044A0B0011F520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F7627044A0B0011F520 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,6 +236,9 @@
 				BCE0620B26E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */,
 				BCE0622426E8CC91005DBA0E /* RaspberryPiConnectionTests */,
 				BCE0622F26E8CC91005DBA0E /* RaspberryPiConnectionUITests */,
+				F86E9F6127044A030011F520 /* RaspberryiPhoneApp */,
+				F86E9F7227044A0B0011F520 /* RaspberryiPhoneAppTests */,
+				F86E9F7C27044A0C0011F520 /* RaspberryiPhoneAppUITests */,
 				BCE061F826E8CC8B005DBA0E /* Products */,
 				BCE062CC26EA1C03005DBA0E /* Frameworks */,
 			);
@@ -185,6 +252,9 @@
 				BCE0620726E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension.appex */,
 				BCE0622126E8CC91005DBA0E /* RaspberryPiConnectionTests.xctest */,
 				BCE0622C26E8CC91005DBA0E /* RaspberryPiConnectionUITests.xctest */,
+				F86E9F6027044A030011F520 /* RaspberryiPhoneApp.app */,
+				F86E9F6F27044A0B0011F520 /* RaspberryiPhoneAppTests.xctest */,
+				F86E9F7927044A0B0011F520 /* RaspberryiPhoneAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,9 +317,47 @@
 		BCE062CC26EA1C03005DBA0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F86E9F8B27044A540011F520 /* NetworkExtension.framework */,
 				BCE062CD26EA1C03005DBA0E /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F86E9F6127044A030011F520 /* RaspberryiPhoneApp */ = {
+			isa = PBXGroup;
+			children = (
+				F86E9F9827044CA00011F520 /* Info.plist */,
+				F86E9F8A27044A380011F520 /* RaspberryiPhoneAppRelease.entitlements */,
+				F86E9F6227044A030011F520 /* RaspberryiPhoneAppApp.swift */,
+				F86E9F6627044A0A0011F520 /* Assets.xcassets */,
+				F86E9F6827044A0A0011F520 /* Preview Content */,
+			);
+			path = RaspberryiPhoneApp;
+			sourceTree = "<group>";
+		};
+		F86E9F6827044A0A0011F520 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F86E9F6927044A0A0011F520 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F86E9F7227044A0B0011F520 /* RaspberryiPhoneAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F86E9F7327044A0B0011F520 /* RaspberryiPhoneAppTests.swift */,
+			);
+			path = RaspberryiPhoneAppTests;
+			sourceTree = "<group>";
+		};
+		F86E9F7C27044A0C0011F520 /* RaspberryiPhoneAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F86E9F7D27044A0C0011F520 /* RaspberryiPhoneAppUITests.swift */,
+				F86E9F7F27044A0C0011F520 /* RaspberryiPhoneAppUITestsLaunchTests.swift */,
+			);
+			path = RaspberryiPhoneAppUITests;
 			sourceTree = "<group>";
 		};
 		F8D254F926FF7A7500271C7B /* State */ = {
@@ -351,13 +459,66 @@
 			productReference = BCE0622C26E8CC91005DBA0E /* RaspberryPiConnectionUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F86E9F5F27044A030011F520 /* RaspberryiPhoneApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F86E9F8727044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneApp" */;
+			buildPhases = (
+				F86E9F5C27044A030011F520 /* Sources */,
+				F86E9F5D27044A030011F520 /* Frameworks */,
+				F86E9F5E27044A030011F520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RaspberryiPhoneApp;
+			productName = RaspberryiPhoneApp;
+			productReference = F86E9F6027044A030011F520 /* RaspberryiPhoneApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F86E9F6E27044A0B0011F520 /* RaspberryiPhoneAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F86E9F8827044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneAppTests" */;
+			buildPhases = (
+				F86E9F6B27044A0B0011F520 /* Sources */,
+				F86E9F6C27044A0B0011F520 /* Frameworks */,
+				F86E9F6D27044A0B0011F520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F86E9F7127044A0B0011F520 /* PBXTargetDependency */,
+			);
+			name = RaspberryiPhoneAppTests;
+			productName = RaspberryiPhoneAppTests;
+			productReference = F86E9F6F27044A0B0011F520 /* RaspberryiPhoneAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F86E9F7827044A0B0011F520 /* RaspberryiPhoneAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F86E9F8927044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneAppUITests" */;
+			buildPhases = (
+				F86E9F7527044A0B0011F520 /* Sources */,
+				F86E9F7627044A0B0011F520 /* Frameworks */,
+				F86E9F7727044A0B0011F520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F86E9F7B27044A0B0011F520 /* PBXTargetDependency */,
+			);
+			name = RaspberryiPhoneAppUITests;
+			productName = RaspberryiPhoneAppUITests;
+			productReference = F86E9F7927044A0B0011F520 /* RaspberryiPhoneAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BCE061F126E8CC8B005DBA0E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					BCE061F626E8CC8B005DBA0E = {
@@ -376,6 +537,17 @@
 					BCE0622B26E8CC91005DBA0E = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = BCE061FA26E8CC8B005DBA0E;
+					};
+					F86E9F5F27044A030011F520 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					F86E9F6E27044A0B0011F520 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = F86E9F5F27044A030011F520;
+					};
+					F86E9F7827044A0B0011F520 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = F86E9F5F27044A030011F520;
 					};
 				};
 			};
@@ -397,6 +569,9 @@
 				BCE0620626E8CC8E005DBA0E /* RaspberryPiConnection WatchKit Extension */,
 				BCE0622026E8CC91005DBA0E /* RaspberryPiConnectionTests */,
 				BCE0622B26E8CC91005DBA0E /* RaspberryPiConnectionUITests */,
+				F86E9F5F27044A030011F520 /* RaspberryiPhoneApp */,
+				F86E9F6E27044A0B0011F520 /* RaspberryiPhoneAppTests */,
+				F86E9F7827044A0B0011F520 /* RaspberryiPhoneAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -434,6 +609,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BCE0622A26E8CC91005DBA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F5E27044A030011F520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E9F6A27044A0A0011F520 /* Preview Assets.xcassets in Resources */,
+				F86E9F6727044A0A0011F520 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F6D27044A0B0011F520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F7727044A0B0011F520 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -479,6 +677,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F86E9F5C27044A030011F520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E9F9527044AF00011F520 /* ContentView.swift in Sources */,
+				F86E9F8E27044AAF0011F520 /* StateManager.swift in Sources */,
+				F86E9F8F27044AAF0011F520 /* State.swift in Sources */,
+				F86E9F9027044AAF0011F520 /* Buoy.swift in Sources */,
+				F86E9F9127044AAF0011F520 /* WifiConnectivity.swift in Sources */,
+				F86E9F9227044AAF0011F520 /* ReceivedData.swift in Sources */,
+				F86E9F9327044AAF0011F520 /* SessionManager.swift in Sources */,
+				F86E9F9427044AAF0011F520 /* BluetoothConnectivity.swift in Sources */,
+				F86E9F8D27044A830011F520 /* Lab.swift in Sources */,
+				F86E9F6327044A030011F520 /* RaspberryiPhoneAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F6B27044A0B0011F520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E9F7427044A0B0011F520 /* RaspberryiPhoneAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E9F7527044A0B0011F520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E9F8027044A0C0011F520 /* RaspberryiPhoneAppUITestsLaunchTests.swift in Sources */,
+				F86E9F7E27044A0C0011F520 /* RaspberryiPhoneAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -501,6 +733,16 @@
 			isa = PBXTargetDependency;
 			target = BCE061FA26E8CC8B005DBA0E /* RaspberryPiConnection WatchKit App */;
 			targetProxy = BCE0622D26E8CC91005DBA0E /* PBXContainerItemProxy */;
+		};
+		F86E9F7127044A0B0011F520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F86E9F5F27044A030011F520 /* RaspberryiPhoneApp */;
+			targetProxy = F86E9F7027044A0B0011F520 /* PBXContainerItemProxy */;
+		};
+		F86E9F7B27044A0B0011F520 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F86E9F5F27044A030011F520 /* RaspberryiPhoneApp */;
+			targetProxy = F86E9F7A27044A0B0011F520 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -831,6 +1073,177 @@
 			};
 			name = Release;
 		};
+		F86E9F8127044A0C0011F520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RaspberryiPhoneApp/Preview Content\"";
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RaspberryiPhoneApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We connect to the RaspberryPi over bluetooth to turn it on/off";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We connect to the RaspberryPi over bluetooth to turn it on/off";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F86E9F8227044A0C0011F520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = RaspberryiPhoneApp/RaspberryiPhoneAppRelease.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RaspberryiPhoneApp/Preview Content\"";
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RaspberryiPhoneApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We connect to the RaspberryPi over bluetooth to turn it on/off";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We connect to the RaspberryPi over bluetooth to turn it on/off";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F86E9F8327044A0C0011F520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryiPhoneApp.app/RaspberryiPhoneApp";
+			};
+			name = Debug;
+		};
+		F86E9F8427044A0C0011F520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaspberryiPhoneApp.app/RaspberryiPhoneApp";
+			};
+			name = Release;
+		};
+		F86E9F8527044A0C0011F520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RaspberryiPhoneApp;
+			};
+			name = Debug;
+		};
+		F86E9F8627044A0C0011F520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WCM2L8RG39;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tum.in.ase.fa21.iphone.controller.RaspberryiPhoneAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RaspberryiPhoneApp;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -884,6 +1297,33 @@
 			buildConfigurations = (
 				BCE0624426E8CC91005DBA0E /* Debug */,
 				BCE0624526E8CC91005DBA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F86E9F8727044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86E9F8127044A0C0011F520 /* Debug */,
+				F86E9F8227044A0C0011F520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F86E9F8827044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86E9F8327044A0C0011F520 /* Debug */,
+				F86E9F8427044A0C0011F520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F86E9F8927044A0C0011F520 /* Build configuration list for PBXNativeTarget "RaspberryiPhoneAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86E9F8527044A0C0011F520 /* Debug */,
+				F86E9F8627044A0C0011F520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

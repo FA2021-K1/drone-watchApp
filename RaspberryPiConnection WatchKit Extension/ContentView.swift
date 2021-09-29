@@ -24,27 +24,43 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
-            if #available(watchOSApplicationExtension 8.0, *) {
-                TimelineView(.periodic(from: Date.now, by: 1)) { context in
-                    VStack {
-                        Text("Drone2Buoy App \(stateManager.tick(date: context.date))")
-                        Text("State: \(stateManager.state.state.rawValue)")
-                        Text("WiFi status \(stateManager.wifiConnectivity.isConnected)")
-                        if stateManager.wifiConnectivity.isConnected == "connected" {
-                            Text("Connected to \(stateManager.wifiConnectivity.connectedNetwork)")
-                        } else {
-                            Text("Last connected to \(stateManager.wifiConnectivity.connectedNetwork)")
+            #if TARGET_OS_WATCH
+                if #available(watchOSApplicationExtension 8.0, *) {
+                    TimelineView(.periodic(from: Date.now, by: 1)) { context in
+                        VStack {
+                            Text("Drone2Buoy App \(stateManager.tick(date: context.date))")
+                            Text("State: \(stateManager.state.state.rawValue)")
+                            Text("WiFi status \(stateManager.wifiConnectivity.isConnected)")
+                            if stateManager.wifiConnectivity.isConnected == "connected" {
+                                Text("Connected to \(stateManager.wifiConnectivity.connectedNetwork)")
+                            } else {
+                                Text("Last connected to \(stateManager.wifiConnectivity.connectedNetwork)")
+                            }
+                            Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
+                            Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
+                             
                         }
-                        Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
-                        Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
-                         
                     }
+    //                    Text(stateManager.ticktock ? "tick" : "tock")
+                } else {
+                    Text("please update to watchos 8 or later")
+                    // Fallback on earlier versions
                 }
-//                    Text(stateManager.ticktock ? "tick" : "tock")
-            } else {
-                Text("please update to watchos 8 or later")
-                // Fallback on earlier versions
+            #else
+            VStack {
+                Text("Drone2Buoy App \(stateManager.tick(date: Date()))")
+                Text("State: \(stateManager.state.state.rawValue)")
+                Text("WiFi status \(stateManager.wifiConnectivity.isConnected)")
+                if stateManager.wifiConnectivity.isConnected == "connected" {
+                    Text("Connected to \(stateManager.wifiConnectivity.connectedNetwork)")
+                } else {
+                    Text("Last connected to \(stateManager.wifiConnectivity.connectedNetwork)")
+                }
+                Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
+                Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
+            }.onReceive(timer) { input in stateManager.tick(date: Date())
             }
+            #endif
         }
     }
 }
