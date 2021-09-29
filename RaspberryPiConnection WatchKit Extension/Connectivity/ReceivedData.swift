@@ -18,7 +18,8 @@ class ReceivedData {
     
     func save(data: [String:Any],buoyId: Int) {
      //   let dataArray = [buoyId, date, data] as [Any]
-        //add data to name - formatted 
+        //add data to name - formatted
         defaults.set(data, forKey: "\(buoyId)")
+        
     }
 }

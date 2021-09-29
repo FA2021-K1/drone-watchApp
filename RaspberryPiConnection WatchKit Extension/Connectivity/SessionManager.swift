@@ -38,15 +38,16 @@ class SessionManager {
        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
            if error != nil {
                    print(error!)
+               self.state.state = .btTurningBuoyOff
                  } else {
                    do {
                        if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any] {
                        print("JSON received: \(json)")
-                           print("buoyId")
+                          // print("buoyId")
                            self.buoyId += 1
                            self.receivedData.data = json
                            self.receivedData.save(data: json, buoyId: self.buoyId)
-                       self.state.state = .btTurningBuoyOff
+                           self.state.state = .btTurningBuoyOff
                            
                        
                 } else {
@@ -54,7 +55,7 @@ class SessionManager {
                 }
               } catch let error as NSError {
                 print(error)
-                  self.state.state = .btTurningBuoyOff
+                self.state.state = .btTurningBuoyOff
               }
             }
            
@@ -79,7 +80,7 @@ class SessionManager {
             let data = UserDefaults.standard.string(forKey: "\(buoyId)")
             print("data from UserDefaults: \(data ?? "No data found")")
             print("buoy ID: \(buoyId)")
-            if let jsonData2 = try? JSONSerialization.data(withJSONObject: UserDefaults.standard.string(forKey: "\(buoyId)") ?? ["message": "no data found"]) {
+            if let jsonData2 = try? JSONSerialization.data(withJSONObject: UserDefaults.standard.object(forKey: "\(buoyId)") as? [String: Any] ?? "no data found") {
           //  print("jsonData2)
     
         //let jsonData = try? JSONSerialization.data(withJSONObject: receivedData.data)
