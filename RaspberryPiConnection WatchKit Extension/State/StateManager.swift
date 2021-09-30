@@ -18,9 +18,8 @@ class StateManager: ObservableObject {
     @Published var ticktock: Bool = false
     @Published var wifiConnectivity = WifiConnectivity(
         buoy: Buoy(ssid: "BuoyAP", password: "drone@12", url: URL(string: "http://192.168.10.50/v1/data")!),
-       // lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
-lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "http://172.20.10.7/v1/measurements/drone")!))
-        
+        lab: Lab(ssid: "LS1 FA2", password: "ls1.internet", url: URL(string: "https://data.fa.ase.in.tum.de/v1/measurements/drone")!))
+
     @Published var receivedData = ReceivedData()
     @Published var bluetoothConnectivity = BluetoothConnectivity()
     var buoyID = 0

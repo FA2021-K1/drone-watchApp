@@ -30,7 +30,7 @@ struct ContentView: View {
                             }
                             Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
                             Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
-                            Text("Data received \(stateManager.receivedData.data.description)")
+                            Text("Data received: \(stateManager.receivedData.toString(data: stateManager.receivedData.data))")
                             NavigationLink("Configuration") {
                                 Setup().environmentObject(stateManager)
                             }
@@ -52,7 +52,7 @@ struct ContentView: View {
                 }
                 Text("Connected to Pi: \(stateManager.bluetoothConnectivity.connected)")
                 Text("Pi turned \(stateManager.bluetoothConnectivity.status.rawValue)")
-                Text("Data received \(stateManager.receivedData.data.description)")
+                Text("Data received: \(stateManager.receivedData.toString(data: stateManager.receivedData.data))")
                 NavigationLink("Configuration") {
                     Setup().environmentObject(stateManager)
                 }

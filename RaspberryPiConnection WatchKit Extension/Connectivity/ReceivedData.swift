@@ -19,4 +19,8 @@ class ReceivedData {
     func save(data: Data,buoyId: Int) {
         defaults.set(data, forKey: "\(buoyId)")
     }
+    
+    func toString(data: Data) -> String {
+       return String(decoding: data, as: UTF8.self)
+    }
 }
