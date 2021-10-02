@@ -51,11 +51,16 @@ public class BluetoothConnectivity: NSObject, ObservableObject{
         }
     }
     public func setPiPower() {
-        guard let wrChar = writeCharacteristic else {
-            print("Write characteristic not yet discovered!")
-            return
+        if self.connected == "YES" {
+            guard let wrChar = writeCharacteristic else {
+                print("Write characteristic not yet discovered!")
+                return
+            }
+            raspberryPi?.readValue(for: wrChar) // read value, in reading callback write if necessary
+
+        } else if self.connected == "NO" {
+            self.waitForBuoy()
         }
-        raspberryPi?.readValue(for: wrChar) // read value, in reading callback write if necessary
     }
     
     private func updateMode() {

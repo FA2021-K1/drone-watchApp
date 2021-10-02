@@ -85,8 +85,8 @@ class StateManager: ObservableObject {
             print("Data transmitted to ScienceLab and deleted all data from UserDefaults!")
         case .btTurningBuoyOff:
             self.bluetoothConnectivity.setPiPower()
-            print("automatically switch to initial state for now, reenable bt turn off later")
-            self.state.state = .waitingForBuoyOrScienceLab
+            //print("automatically switch to initial state for now, reenable bt turn off later")
+//             self.state.state = .waitingForBuoyOrScienceLab
         case .wifiWaitForDisconnect:
             self.wifiConnectivity.pushState(state: state)
             self.wifiConnectivity.checkForCurrentNetwork(waitForDisconnect: true)

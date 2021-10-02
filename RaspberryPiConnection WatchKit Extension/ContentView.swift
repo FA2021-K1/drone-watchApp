@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-@available(iOS 15.0, *)
+
 struct ContentView: View {
     @EnvironmentObject var stateManager: StateManager
     
